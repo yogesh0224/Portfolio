@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Human-Centric AI in Education | Yogesh Luitel</title>
+  <meta name="description" content="Reflections on designing ethical AI systems that empower teachers and personalize learning without compromising privacy.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0B1120;
+      --card-bg: #1E293B;
+      --text: #F8FAFC;
+      --text-light: #94A3B8;
+      --text-body: #CBD5E1;
+      --primary: #2DD4BF;
+      --primary-dark: #14B8A6;
+      --accent: #A78BFA;
+      --border: #334155;
+      --shadow: 0 20px 40px rgba(0,0,0,0.5);
+      --transition: all 0.4s ease;
+    }
+    [data-theme="light"] {
+      --bg: #F1F5F9;
+      --card-bg: #FFFFFF;
+      --text: #0F172A;
+      --text-light: #64748B;
+      --text-body: #475569;
+      --primary: #0D9488;
+      --primary-dark: #065F46;
+      --accent: #7C3AED;
+      --border: #E2E8F0;
+      --shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: var(--transition); line-height: 1.8; overflow-x: hidden; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(#noise)" opacity="0.05"/></svg>'); }
+    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(11,17,32,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
+    .logo { font-size: 1.9rem; font-weight: 700; color: var(--primary); transition: var(--transition); }
+    .nav-links { display: flex; gap: 3rem; align-items: center; }
+    .nav-link { font-weight: 600; color: var(--text-light); position: relative; padding: 0.5rem 0; letter-spacing: 0.5px; }
+    .nav-link:hover, .nav-link.active { color: var(--primary); }
+    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--primary); transition: width 0.4s ease; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .theme-toggle { background: none; border: none; font-size: 1.5rem; color: var(--text-light); cursor: pointer; padding: 0.5rem; border-radius: 50%; transition: var(--transition); }
+    .theme-toggle:hover { background: rgba(45,212,191,0.1); color: var(--primary); transform: scale(1.1); }
+
+    .mobile-menu-btn { display: none; font-size: 1.8rem; color: var(--text-light); cursor: pointer; }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--card-bg); padding: 6rem 2rem 2rem; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 2rem; z-index: 1000; }
+    .mobile-menu.open { right: 0; }
+    .mobile-menu-link { font-size: 1.5rem; font-weight: 600; color: var(--text-light); padding: 0.5rem 0; }
+    .mobile-menu-link:hover, .mobile-menu-link.active { color: var(--primary); padding-left: 1rem; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2rem; color: var(--text-light); cursor: pointer; }
+
+    #progress-bar { position: fixed; top: 0; left: 0; height: 5px; background: linear-gradient(to right, var(--primary), var(--accent)); width: 0%; z-index: 9999; box-shadow: 0 0 10px var(--primary); transition: width 0.2s ease; }
+
+    .blog-header { position: relative; margin: 6rem 0 6rem; text-align: center; }
+    .blog-header img { width: 100vw; margin-left: calc(-50vw + 50%); height: 60vh; object-fit: cover; border-radius: 0 0 1.8rem 1.8rem; box-shadow: var(--shadow); filter: brightness(0.9); }
+    .blog-header-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 4rem 2rem 6rem; background: linear-gradient(transparent, rgba(11,17,32,0.95)); }
+    .blog-header h1 { font-size: 4rem; line-height: 1.15; margin-bottom: 1rem; color: white; }
+    .blog-meta { font-size: 1.2rem; color: #CBD5E1; margin-bottom: 1rem; }
+    .author-bio { display: flex; align-items: center; justify-content: center; gap: 1rem; margin-top: 1rem; font-size: 1.1rem; color: #CBD5E1; }
+    .author-bio img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 4px solid var(--card-bg); }
+
+    .article-wrapper { max-width: 1400px; margin: 0 auto; padding: 0 2rem 8rem; display: grid; grid-template-columns: 260px 1fr; gap: 6rem; }
+    .blog-content { max-width: 880px; font-size: 1.4rem; line-height: 2.0; color: var(--text-body); }
+    .blog-content p { margin-bottom: 3rem; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .blog-content p.visible { opacity: 1; transform: translateY(0); }
+    .blog-content h2 { font-size: 2.6rem; color: var(--primary); margin: 6rem 0 2.5rem; position: relative; }
+    .blog-content h2::after { content: ''; position: absolute; bottom: -0.8rem; left: 0; width: 70px; height: 4px; background: var(--primary); }
+    .blog-content blockquote { margin: 4rem 0; padding-left: 3rem; border-left: 6px solid var(--primary); font-style: italic; font-size: 1.6rem; color: var(--text); }
+
+    #toc { position: sticky; top: 100px; align-self: start; background: var(--card-bg); padding: 2rem; border-radius: 1.5rem; box-shadow: var(--shadow); max-height: calc(100vh - 150px); overflow-y: auto; }
+    #toc h3 { font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--primary); }
+    #toc a { color: var(--text-light); text-decoration: none; transition: var(--transition); font-size: 1.05rem; }
+    #toc a:hover, #toc a.active { color: var(--primary); padding-left: 0.5rem; }
+
+    .back-to-blog { display: block; margin: 8rem auto 6rem; padding: 1.4rem 4rem; background: transparent; border: 2px solid var(--primary); color: var(--primary); border-radius: 9999px; font-weight: 600; cursor: pointer; transition: var(--transition); width: fit-content; font-size: 1.2rem; text-align: center; }
+    .back-to-blog:hover { background: linear-gradient(to right, var(--primary), var(--accent)); color: #0B1120; transform: translateY(-5px); }
+
+    .toc-toggle { display: none; position: fixed; bottom: 2rem; right: 2rem; background: var(--primary); color: #0B1120; padding: 1rem; border-radius: 50%; font-size: 1.5rem; z-index: 1000; box-shadow: var(--shadow); cursor: pointer; }
+
+    footer { background: var(--card-bg); border-top: 1px solid var(--border); padding: 7rem 0 4rem; margin-top: 8rem; }
+    .footer-content { text-align: center; max-width: 700px; margin: 0 auto; }
+    .section-title { font-size: 3.2rem; margin-bottom: 4rem; color: var(--primary); }
+    .contact-info { font-size: 1.3rem; color: var(--text-light); margin-bottom: 4rem; }
+    .social-links { display: flex; justify-content: center; gap: 3rem; font-size: 2.8rem; }
+    .social-links a { color: var(--text-light); transition: var(--transition); }
+    .social-links a:hover { color: var(--primary); transform: translateY(-8px); }
+    .copyright { text-align: center; margin-top: 4rem; color: var(--text-light); font-size: 0.9rem; }
+
+    @media (max-width: 1024px) {
+      .article-wrapper { grid-template-columns: 1fr; }
+      .blog-content { max-width: 100%; }
+      #toc { display: none; }
+      .toc-toggle { display: block; }
+      #toc.mobile-open { display: block; position: fixed; top: 100px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 400px; z-index: 999; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      .blog-header h1 { font-size: 3.4rem; }
+      .blog-content { font-size: 1.3rem; line-height: 1.9; }
+      .blog-content h2 { font-size: 2.4rem; }
+      .article-wrapper { padding: 0 1.5rem 6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-container">
+      <div class="logo">Yogesh Luitel</div>
+      <div class="nav-links">
+        <a href="../index.html#home" class="nav-link">Home</a>
+        <a href="../index.html#about" class="nav-link">About</a>
+        <a href="../index.html#projects" class="nav-link">Projects</a>
+        <a href="../index.html#blog" class="nav-link active">Blog</a>
+        <a href="../index.html#contact" class="nav-link">Contact</a>
+        <button id="theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i></button>
+      </div>
+      <button class="mobile-menu-btn" id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-close" id="mobile-close"><i class="fas fa-times"></i></button>
+    <a href="../index.html#home" class="mobile-menu-link">Home</a>
+    <a href="../index.html#about" class="mobile-menu-link">About</a>
+    <a href="../index.html#projects" class="mobile-menu-link">Projects</a>
+    <a href="../index.html#blog" class="mobile-menu-link active">Blog</a>
+    <a href="../index.html#contact" class="mobile-menu-link">Contact</a>
+    <button id="mobile-theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i> Toggle Theme</button>
+  </div>
+
+  <div id="progress-bar"></div>
+  <button class="toc-toggle" id="toc-toggle"><i class="fas fa-list-ul"></i></button>
+
+  <article class="blog-article">
+    <header class="blog-header">
+      <img src="https://astra-ai.co/_next/image?url=https%3A%2F%2Fcdn.astra-ai.si%2FAI%20impact%20on%20education.png&w=3840&q=75" alt="Human-Centric AI in Education">
+      <div class="blog-header-overlay">
+        <h1>Human-Centric AI in Education</h1>
+        <div class="blog-meta">December 19, 2025 • <span id="read-time">~5 min read</span></div>
+        <div class="author-bio">
+          <img src="../assets/973067ab-f446-46fb-9990-32b17b9b463c.png" alt="Yogesh Luitel">
+          <div>By Yogesh Luitel<br><span style="font-size:0.9rem;">AI Educator & Researcher</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="article-wrapper">
+      <aside id="toc">
+        <h3>Contents</h3>
+        <ul id="toc-list"></ul>
+      </aside>
+
+      <div class="blog-content">
+        <p>In an era where AI is rapidly transforming classrooms, the core challenge remains: how do we ensure technology serves humanity rather than replacing it? This question has guided my work as both an educator and researcher for the past decade.</p>
+        
+        <h2>The Teacher-AI Partnership</h2>
+        <p>True innovation in education lies not in automating teaching, but in augmenting it. AI should handle repetitive tasks—grading basic exercises, tracking progress patterns, identifying knowledge gaps—while freeing educators to focus on what machines cannot replicate: mentorship, emotional intelligence, creative inspiration, and the nuanced understanding of individual student needs.</p>
+        <p>The adaptive tutoring systems I've developed demonstrate this principle in action. When AI acts as a thoughtful assistant rather than a replacement, we see not only improved student outcomes—typically 30-40% greater knowledge retention—but also significantly higher teacher satisfaction and reduced burnout.</p>
+        
+        <h2>Privacy and Ethics First</h2>
+        <p>Any educational AI must prioritize student privacy above all else. Traditional centralized AI models require uploading sensitive student data to cloud servers, creating unnecessary risks. Federated learning approaches I've implemented allow models to improve collaboratively across institutions without ever centralizing or exposing individual student data. This isn't just technically superior—it's ethically necessary in an educational context where trust is paramount.</p>
+        <p>Looking ahead, the future of AI in education belongs to systems that respect both the learner and the teacher as irreplaceable human elements in the learning process. Technology should expand possibilities, not narrow them to what algorithms can measure.</p>
+      </div>
+    </div>
+
+    <a href="../index.html#blog" class="back-to-blog">← Back to Insights & Writing</a>
+  </article>
+
+  <footer>
+    <div class="container footer-content">
+      <h2 class="section-title">Get in Touch</h2>
+      <p class="contact-info">Open to collaborations, research partnerships, speaking engagements, or just a conversation about AI in education.</p>
+      <p class="contact-info"><strong>Email:</strong> <a href="mailto:yogeshluitel9@gmail.com" style="color:var(--primary);">yogeshluitel9@gmail.com</a></p>
+      <div class="social-links">
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+      <div class="copyright">© 2025 Yogesh Luitel. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    const toggleDesktop = document.getElementById('theme-toggle');
+    const toggleMobile = document.getElementById('mobile-theme-toggle');
+    const updateIcon = (btn, isDark) => { if (btn) btn.querySelector('i').className = isDark ? 'fas fa-moon' : 'fas fa-sun'; };
+    [toggleDesktop, toggleMobile].forEach(toggle => {
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          updateIcon(toggleDesktop, !isDark);
+          updateIcon(toggleMobile, !isDark);
+        });
+      }
+    });
+
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const closeBtn = document.getElementById('mobile-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    document.querySelectorAll('.mobile-menu-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    const tocList = document.getElementById('toc-list');
+    const headings = document.querySelectorAll('.blog-content h2');
+    headings.forEach((h, i) => {
+      h.id = `section-${i}`;
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = `#section-${i}`;
+      a.textContent = h.textContent;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+    const tocLinks = document.querySelectorAll('#toc a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      headings.forEach(h => {
+        if (h.getBoundingClientRect().top < 150) current = h.id;
+      });
+      tocLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${current}`));
+    });
+
+    document.getElementById('toc-toggle').addEventListener('click', () => {
+      document.getElementById('toc').classList.toggle('mobile-open');
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.blog-content p').forEach(p => observer.observe(p));
+
+    const wordCount = document.querySelector('.blog-content').textContent.trim().split(/\s+/).length;
+    const readTime = Math.ceil(wordCount / 300);
+    document.getElementById('read-time').textContent = `~${readTime} min read`;
+  </script>
+</body>
+</html>

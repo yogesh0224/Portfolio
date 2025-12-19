@@ -11,35 +11,37 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
     :root {
-      --bg: #0F172A;
+      --bg: #0B1120;
       --card-bg: #1E293B;
-      --text: #F1F5F9;
+      --text: #F8FAFC;
       --text-light: #94A3B8;
-      --primary: #64FFDA;
-      --primary-dark: #0D9488;
+      --text-body: #CBD5E1;
+      --primary: #2DD4BF;
+      --primary-dark: #14B8A6;
       --accent: #A78BFA;
       --border: #334155;
-      --shadow: 0 20px 40px rgba(0,0,0,0.3);
+      --shadow: 0 20px 40px rgba(0,0,0,0.5);
       --transition: all 0.4s ease;
     }
     [data-theme="light"] {
-      --bg: #F8FAFC;
+      --bg: #F1F5F9;
       --card-bg: #FFFFFF;
-      --text: #1E293B;
+      --text: #0F172A;
       --text-light: #64748B;
+      --text-body: #475569;
       --primary: #0D9488;
-      --primary-dark: #064E3B;
+      --primary-dark: #065F46;
       --accent: #7C3AED;
       --border: #E2E8F0;
-      --shadow: 0 20px 40px rgba(0,0,0,0.08);
+      --shadow: 0 20px 40px rgba(0,0,0,0.1);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: var(--transition); line-height: 1.6; overflow-x: hidden; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: var(--transition); line-height: 1.6; overflow-x: hidden; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(#noise)" opacity="0.05"/></svg>'); }
     h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
     .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
 
-    /* Navigation */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); transition: var(--transition); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(11,17,32,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
     .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
     .logo { font-size: 1.9rem; font-weight: 700; color: var(--primary); transition: var(--transition); }
     .logo:hover { transform: translateY(-2px); }
@@ -49,31 +51,26 @@
     .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--primary); border-radius: 2px; transition: width 0.4s ease; }
     .nav-link:hover::after, .nav-link.active::after { width: 100%; }
     .theme-toggle { background: none; border: none; font-size: 1.5rem; color: var(--text-light); cursor: pointer; transition: var(--transition); padding: 0.5rem; border-radius: 50%; }
-    .theme-toggle:hover { background: rgba(100,255,218,0.1); color: var(--primary); transform: scale(1.1); }
+    .theme-toggle:hover { background: rgba(45,212,191,0.1); color: var(--primary); transform: scale(1.1); }
 
-    /* Mobile Menu */
     .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.8rem; color: var(--text-light); cursor: pointer; }
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--card-bg); padding: 6rem 2rem 2rem; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 2rem; }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--card-bg); padding: 6rem 2rem 2rem; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 2rem; z-index: 1000; }
     .mobile-menu.open { right: 0; }
     .mobile-menu-link { font-size: 1.5rem; font-weight: 600; color: var(--text-light); transition: var(--transition); padding: 0.5rem 0; }
     .mobile-menu-link:hover, .mobile-menu-link.active { color: var(--primary); padding-left: 1rem; }
     .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--text-light); cursor: pointer; }
 
-    /* Hero - Perfectly Centered, No Floating Animation */
     .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-    .hero-bg { position: absolute; inset: 0; background: url('https://thumbs.dreamstime.com/b/futuristic-data-network-connections-abstract-blue-technology-background-depicts-glowing-lines-light-particles-symbolizing-388585573.jpg') center/cover no-repeat; opacity: 0.25; }
-    .hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(100,255,218,0.15), transparent 60%); }
-    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
-    .hero-photo { 
-      width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 8px solid var(--card-bg); 
-      box-shadow: var(--shadow); margin-bottom: 3rem; transition: var(--transition); 
-    }
+    .hero-bg { position: absolute; inset: 0; background: url('https://unsplash.com/photos/blackboard-drawing-creative-imagination-idea-concept-aSJuQUpbysY') center/cover no-repeat; opacity: 0.2; }
+    .hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(45,212,191,0.15), transparent 60%); }
+    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
+    .hero-photo { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 8px solid var(--card-bg); box-shadow: var(--shadow); margin-bottom: 3rem; transition: var(--transition); }
     .hero-photo:hover { transform: scale(1.05); }
     .hero h1 { font-size: 4.2rem; margin-bottom: 1rem; }
     .hero .subtitle { font-size: 2.1rem; color: var(--primary); margin-bottom: 1.5rem; }
     .hero .description { font-size: 1.3rem; color: var(--text-light); max-width: 700px; margin: 0 auto 3.5rem; }
-    .btn { padding: 1rem 2.5rem; background: var(--primary); color: #0F172A; font-weight: 600; border-radius: 9999px; transition: var(--transition); box-shadow: var(--shadow); font-size: 1.1rem; }
-    .btn:hover { background: var(--primary-dark); transform: translateY(-4px); color: white; }
+    .btn { padding: 1rem 2.5rem; background: var(--primary); color: #0B1120; font-weight: 600; border-radius: 9999px; transition: var(--transition); box-shadow: var(--shadow); font-size: 1.1rem; }
+    .btn:hover { background: var(--primary-dark); transform: translateY(-4px); }
 
     section { padding: 7rem 0; }
     .section-title { font-size: 3.2rem; text-align: center; margin-bottom: 4rem; color: var(--primary); }
@@ -83,38 +80,19 @@
 
     .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
 
-    /* Project Cards - Keeping the Wow Animations */
-    .card { 
-      background: var(--card-bg); border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow); 
-      transition: var(--transition); opacity: 0; transform: translateY(40px) scale(0.95); position: relative;
-    }
+    .card { background: var(--card-bg); border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); opacity: 0; transform: translateY(40px) scale(0.95); position: relative; cursor: pointer; }
     .card.visible { opacity: 1; transform: translateY(0) scale(1); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .card:hover { transform: translateY(-20px) scale(1.03); box-shadow: 0 30px 60px rgba(100,255,218,0.2); }
-    .card::before { 
-      content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; 
-      background: linear-gradient(45deg, var(--primary), var(--accent), var(--primary)); 
-      border-radius: 1.5rem; opacity: 0; transition: opacity 0.5s; z-index: -1; 
-    }
+    .card:hover { transform: translateY(-20px) scale(1.03); box-shadow: 0 30px 60px rgba(45,212,191,0.3); }
+    .card::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(45deg, var(--primary), var(--accent)); border-radius: 1.5rem; opacity: 0; transition: opacity 0.5s; z-index: -1; }
     .card:hover::before { opacity: 0.4; animation: glow 2s linear infinite; }
-    @keyframes glow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+    @keyframes glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
     .card-img { width: 100%; height: 260px; object-fit: cover; transition: transform 0.8s ease; }
     .card:hover .card-img { transform: scale(1.15); }
     .card-content { padding: 2rem; }
     .card-title { font-size: 1.7rem; margin-bottom: 1rem; color: var(--primary); }
     .card-desc { color: var(--text-light); margin-bottom: 2rem; font-size: 1.05rem; }
-    .tech-stack { display: flex; gap: 1rem; margin-bottom: 2rem; font-size: 1.8rem; color: var(--primary); }
     .card-links a { color: var(--primary); margin-right: 1.5rem; font-weight: 600; transition: color 0.3s; }
     .card-links a:hover { color: var(--accent); }
-
-    /* Pagination */
-    .pagination { text-align: center; margin-top: 4rem; display: flex; justify-content: center; gap: 1rem; }
-    .pagination-btn { padding: 0.8rem 2rem; background: var(--card-bg); border: 1px solid var(--border); color: var(--text); border-radius: 9999px; cursor: pointer; transition: var(--transition); font-weight: 600; }
-    .pagination-btn:hover:not(.disabled) { background: var(--primary); color: #0F172A; }
-    .pagination-btn.disabled { opacity: 0.5; cursor: not-allowed; }
 
     .contact-content { text-align: center; max-width: 700px; margin: 0 auto; }
     .contact-info { font-size: 1.3rem; color: var(--text-light); margin-bottom: 4rem; }
@@ -125,31 +103,18 @@
     .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* Mobile Responsiveness */
-    @media (max-width: 1024px) {
-      .grid-container { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
-    }
+    @media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 768px) {
-      .container { padding: 0 1.5rem; }
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
-      .hero { padding-top: 100px; }
       .hero h1 { font-size: 3.2rem; }
       .hero .subtitle { font-size: 1.8rem; }
-      .hero .description { font-size: 1.2rem; }
-      .hero-photo { width: 240px; height: 240px; margin-bottom: 2rem; }
-      .section-title { font-size: 2.8rem; margin-bottom: 3rem; }
-      section { padding: 5rem 0; }
-      .grid-container { grid-template-columns: 1fr; gap: 2.5rem; }
-      .card-img { height: 220px; }
-      .card-content { padding: 1.8rem; }
-      .card-title { font-size: 1.6rem; }
+      .grid-container { grid-template-columns: 1fr; }
+      .hero-photo { width: 240px; height: 240px; }
     }
     @media (max-width: 480px) {
       .hero h1 { font-size: 2.8rem; }
-      .hero .subtitle { font-size: 1.6rem; }
-      .section-title { font-size: 2.5rem; }
-      .btn { padding: 0.9rem 2rem; font-size: 1rem; }
+      .section-title { font-size: 2.8rem; }
     }
   </style>
 </head>
@@ -164,32 +129,22 @@
         <a href="#projects" class="nav-link">Projects</a>
         <a href="#blog" class="nav-link">Blog</a>
         <a href="#contact" class="nav-link">Contact</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-          <i class="fas fa-sun"></i>
-        </button>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
-        <i class="fas fa-bars"></i>
-      </button>
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-close" id="mobile-close" aria-label="Close menu">
-      <i class="fas fa-times"></i>
-    </button>
+    <button class="mobile-close" id="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
     <a href="#home" class="mobile-menu-link active">Home</a>
     <a href="#about" class="mobile-menu-link">About</a>
     <a href="#projects" class="mobile-menu-link">Projects</a>
     <a href="#blog" class="mobile-menu-link">Blog</a>
     <a href="#contact" class="mobile-menu-link">Contact</a>
-    <button id="mobile-theme-toggle" class="theme-toggle" style="align-self: flex-start; margin-top: 2rem;">
-      <i class="fas fa-sun"></i> Toggle Theme
-    </button>
+    <button id="mobile-theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i> Toggle Theme</button>
   </div>
 
-  <!-- Hero -->
   <section id="home" class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -202,49 +157,37 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about">
     <div class="container">
       <h2 class="section-title fade-in">About Me</h2>
       <div class="about-content fade-in">
-        <p>As a Computer Science teacher for Grades 11 and 12, I inspire students to think critically and creatively in the age of AI.</p>
-        <p>My research explores human-centric AI in education — building adaptive tutoring systems, immersive knowledge visualization tools, and privacy-preserving federated learning frameworks that empower learners while upholding ethics and accessibility.</p>
-        <p>I believe AI should augment, not replace, human teaching — creating personalized, equitable educational experiences.</p>
+        <p>I believe education should empower, not constrain. As an IT professional with expertise in Python and back-end development, I am passionate about using technology to redefine how students learn and engage with knowledge.</p>
+        <p>My focus is on creating solutions that make education more interactive, accessible, and aligned with the digital future.</p>
+        <p>Driven by curiosity and impact, I aim to bridge the gap between traditional learning and modern technological opportunities, shaping experiences that equip learners with the skills and mindset to thrive in a rapidly evolving world.</p>
       </div>
     </div>
   </section>
 
-  <!-- Projects -->
   <section id="projects">
     <div class="container">
       <h2 class="section-title fade-in">Featured Projects</h2>
       <div id="projects-grid" class="grid-container"></div>
-      <div class="pagination">
-        <button class="pagination-btn disabled">Previous</button>
-        <button class="pagination-btn disabled">Next</button>
-      </div>
     </div>
   </section>
 
-  <!-- Blog -->
   <section id="blog">
     <div class="container">
       <h2 class="section-title fade-in">Insights & Writing</h2>
       <div id="blog-grid" class="grid-container"></div>
-      <div class="pagination">
-        <button class="pagination-btn disabled">Previous</button>
-        <button class="pagination-btn disabled">Next</button>
-      </div>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title fade-in">Get in Touch</h2>
       <div class="contact-content fade-in">
         <p class="contact-info">Open to collaborations, research partnerships, speaking engagements, or just a conversation about AI in education.</p>
-        <p class="contact-info"><strong>Email:</strong> <a href="mailto:yogesh.luitel@example.com">yogeshluitel9@gmail.com</a></p>
+        <p class="contact-info"><strong>Email:</strong> <a href="mailto:yogeshluitel9@gmail.com" style="color:var(--primary);">yogeshluitel9@gmail.com</a></p>
         <div class="social-links">
           <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
           <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
@@ -255,13 +198,9 @@
   </section>
 
   <script>
-    // Theme Toggle & Mobile Menu
     const toggleDesktop = document.getElementById('theme-toggle');
     const toggleMobile = document.getElementById('mobile-theme-toggle');
-    const updateIcon = (btn, isDark) => { 
-      if (btn) btn.querySelector('i').className = isDark ? 'fas fa-moon' : 'fas fa-sun'; 
-    };
-
+    const updateIcon = (btn, isDark) => { if (btn) btn.querySelector('i').className = isDark ? 'fas fa-moon' : 'fas fa-sun'; };
     [toggleDesktop, toggleMobile].forEach(toggle => {
       if (toggle) {
         toggle.addEventListener('click', () => {
@@ -276,60 +215,22 @@
     const menuBtn = document.getElementById('mobile-menu-btn');
     const closeBtn = document.getElementById('mobile-close');
     const mobileMenu = document.getElementById('mobile-menu');
-
     menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
     closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    document.querySelectorAll('.mobile-menu-link').forEach(link => {
-      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
+    document.querySelectorAll('.mobile-menu-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-    // Data
     const projectsData = [
-      { 
-        img: "https://cdn.dribbble.com/userupload/18256700/file/original-31256d8a7071293cd22a2c9632dee4e1.png", 
-        title: "Adaptive AI Tutor with Cognitive Modeling", 
-        desc: "Full-stack intelligent tutoring system using Deep Knowledge Tracing (LSTMs), contextual bandits, and CodeBERT for personalized programming education.", 
-        tech: ["python", "brain", "server", "hugging-face"], 
-        links: [{icon: "github", url: "https://github.com/yogesh0224/Adaptive-Tutor"}, {icon: "external-link-alt", url: "#"}] 
-      },
-      { 
-        img: "https://cambridge-intelligence.com/wp-content/uploads/2025/06/starburst-700x553-1.png", 
-        title: "Knowledge Constellation", 
-        desc: "Immersive 3D knowledge graph platform built with Three.js, enabling dynamic visualization and adaptive learner analytics.", 
-        tech: ["js", "server", "chart-line"], 
-        links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] 
-      },
-      { 
-        img: "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41467-023-38569-4/MediaObjects/41467_2023_38569_Fig1_HTML.png", 
-        title: "Privacy-Preserving Federated Learning", 
-        desc: "Distributed ML framework using TensorFlow Federated for secure, ethical AI applications in education.", 
-        tech: ["brain", "lock", "python"], 
-        links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] 
-      }
+      { img: "https://cdn.dribbble.com/userupload/18256700/file/original-31256d8a7071293cd22a2c9632dee4e1.png", title: "Adaptive AI Tutor with Cognitive Modeling", desc: "Full-stack intelligent tutoring system using Deep Knowledge Tracing (LSTMs), contextual bandits, and CodeBERT for personalized programming education.", tech: ["python", "brain", "server", "hugging-face"], links: [{icon: "github", url: "https://github.com/yogesh0224/Adaptive-Tutor"}, {icon: "external-link-alt", url: "#"}] },
+      { img: "https://cambridge-intelligence.com/wp-content/uploads/2025/06/starburst-700x553-1.png", title: "Knowledge Constellation", desc: "Immersive 3D knowledge graph platform built with Three.js, enabling dynamic visualization and adaptive learner analytics.", tech: ["js", "server", "chart-line"], links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] },
+      { img: "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41467-023-38569-4/MediaObjects/41467_2023_38569_Fig1_HTML.png", title: "Privacy-Preserving Federated Learning", desc: "Distributed ML framework using TensorFlow Federated for secure, ethical AI applications in education.", tech: ["brain", "lock", "python"], links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] }
     ];
 
     const blogsData = [
-      { 
-        img: "https://erepublic.brightspotcdn.com/dims4/default/72e4cc4/2147483647/strip/false/crop/4160x2250+0+0/resize/1486x804!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F40%2Fe6%2Fe34580384d0dac9ccb75d70b5373%2Fai-bias-or-dilemma.jpg", 
-        title: "Human-Centric AI in Education", 
-        desc: "Reflections on designing ethical AI systems that empower teachers and personalize learning without compromising privacy.", 
-        link: "#" 
-      },
-      { 
-        img: "https://www.shutterstock.com/image-photo/agentic-ai-journey-insurance-keep-600nw-2645097637.jpg", 
-        title: "Ethical Considerations in AI-Driven Education", 
-        desc: "Exploring the principles of responsible AI deployment in classrooms and beyond.", 
-        link: "#" 
-      },
-      { 
-        img: "https://er.educause.edu/-/media/images/articles/2024/08/er24_065_headerart_1600x900.jpg", 
-        title: "Personalized Learning at Scale with AI", 
-        desc: "How adaptive systems are transforming equitable access to quality education.", 
-        link: "#" 
-      }
+      { img: "https://erepublic.brightspotcdn.com/dims4/default/72e4cc4/2147483647/strip/false/crop/4160x2250+0+0/resize/1486x804!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F40%2Fe6%2Fe34580384d0dac9ccb75d70b5373%2Fai-bias-or-dilemma.jpg", title: "Human-Centric AI in Education", desc: "Reflections on designing ethical AI systems that empower teachers and personalize learning without compromising privacy.", link: "blog/human-centric-ai-in-education.html" },
+      { img: "https://www.shutterstock.com/image-photo/agentic-ai-journey-insurance-keep-600nw-2645097637.jpg", title: "Ethical Considerations in AI-Driven Education", desc: "Exploring the principles of responsible AI deployment in classrooms and beyond.", link: "blog/ethical-considerations-ai-education.html" },
+      { img: "https://er.educause.edu/-/media/images/articles/2024/08/er24_065_headerart_1600x900.jpg", title: "Personalized Learning at Scale with AI", desc: "How adaptive systems are transforming equitable access to quality education.", link: "blog/personalized-learning-at-scale.html" }
     ];
 
-    // Render Cards
     function renderCards(containerId, data, isProject = true) {
       const container = document.getElementById(containerId);
       container.innerHTML = '';
@@ -343,12 +244,12 @@
             <p class="card-desc">${item.desc}</p>
             ${isProject ? `
               <div class="tech-stack">
-                ${item.tech.map(t => `<i class="fa${t.startsWith('hugging') ? 'b' : 's'} fa-${t}" title="${t.charAt(0).toUpperCase() + t.slice(1)}"></i>`).join('')}
+                ${item.tech.map(t => `<i class="fas fa-${t.includes('hugging') ? 'brain' : t}"></i>`).join('')}
               </div>
               <div class="card-links">
                 ${item.links.map(l => `<a href="${l.url}" target="_blank"><i class="fas fa-${l.icon}"></i> ${l.icon === 'github' ? 'GitHub' : 'Demo'}</a>`).join('')}
               </div>
-            ` : `<a href="${item.link}" style="color: var(--primary); font-weight: bold;">Read More →</a>`}
+            ` : `<a href="${item.link}" style="color: var(--primary); font-weight: bold;">Read Article →</a>`}
           </div>
         `;
         container.appendChild(card);
@@ -359,11 +260,8 @@
     renderCards('projects-grid', projectsData, true);
     renderCards('blog-grid', blogsData, false);
 
-    // Fade-in Observer
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
