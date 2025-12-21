@@ -1,269 +1,563 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yogesh Luitel | AI Educator & Researcher</title>
-  <meta name="description" content="Yogesh Luitel - Dedicated Computer Science educator and AI researcher focusing on human-centric AI solutions in education.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yogesh Luitel | Portfolio</title>
+  <meta name="description" content="Yogesh Luitel — EdTech builder, CS instructor, and early-career researcher exploring responsible AI, AI governance, cyber policy, and adaptive learning systems." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <style>
-    :root {
-      --bg: #0B1120;
-      --card-bg: #1E293B;
-      --text: #F8FAFC;
-      --text-light: #94A3B8;
-      --text-body: #CBD5E1;
-      --primary: #2DD4BF;
-      --primary-dark: #14B8A6;
-      --accent: #A78BFA;
-      --border: #334155;
-      --shadow: 0 20px 40px rgba(0,0,0,0.5);
-      --transition: all 0.4s ease;
-    }
-    [data-theme="light"] {
-      --bg: #F1F5F9;
-      --card-bg: #FFFFFF;
-      --text: #0F172A;
-      --text-light: #64748B;
-      --text-body: #475569;
-      --primary: #0D9488;
-      --primary-dark: #065F46;
-      --accent: #7C3AED;
-      --border: #E2E8F0;
-      --shadow: 0 20px 40px rgba(0,0,0,0.1);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); transition: var(--transition); line-height: 1.6; overflow-x: hidden; position: relative; }
-    body::before { content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 9999; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100" height="100" filter="url(#noise)" opacity="0.05"/></svg>'); }
-    h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(11,17,32,0.85); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; }
-    .logo { font-size: 1.9rem; font-weight: 700; color: var(--primary); transition: var(--transition); }
-    .logo:hover { transform: translateY(-2px); }
-    .nav-links { display: flex; gap: 3rem; align-items: center; }
-    .nav-link { font-weight: 600; color: var(--text-light); transition: var(--transition); position: relative; padding: 0.5rem 0; letter-spacing: 0.5px; }
-    .nav-link:hover, .nav-link.active { color: var(--primary); }
-    .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--primary); border-radius: 2px; transition: width 0.4s ease; }
-    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-    .theme-toggle { background: none; border: none; font-size: 1.5rem; color: var(--text-light); cursor: pointer; transition: var(--transition); padding: 0.5rem; border-radius: 50%; }
-    .theme-toggle:hover { background: rgba(45,212,191,0.1); color: var(--primary); transform: scale(1.1); }
-
-    .mobile-menu-btn { display: none; background: none; border: none; font-size: 1.8rem; color: var(--text-light); cursor: pointer; }
-    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px; height: 100vh; background: var(--card-bg); padding: 6rem 2rem 2rem; transition: right 0.5s cubic-bezier(0.77, 0, 0.175, 1); box-shadow: -10px 0 30px rgba(0,0,0,0.4); display: flex; flex-direction: column; gap: 2rem; z-index: 1000; }
-    .mobile-menu.open { right: 0; }
-    .mobile-menu-link { font-size: 1.5rem; font-weight: 600; color: var(--text-light); transition: var(--transition); padding: 0.5rem 0; }
-    .mobile-menu-link:hover, .mobile-menu-link.active { color: var(--primary); padding-left: 1rem; }
-    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--text-light); cursor: pointer; }
-
-    .hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding-top: 80px; }
-    .hero-bg { position: absolute; inset: 0; background: url('https://unsplash.com/photos/blackboard-drawing-creative-imagination-idea-concept-aSJuQUpbysY') center/cover no-repeat; opacity: 0.2; }
-    .hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(45,212,191,0.15), transparent 60%); }
-    .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; margin: 0 auto; }
-    .hero-photo { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 8px solid var(--card-bg); box-shadow: var(--shadow); margin-bottom: 3rem; transition: var(--transition); }
-    .hero-photo:hover { transform: scale(1.05); }
-    .hero h1 { font-size: 4.2rem; margin-bottom: 1rem; }
-    .hero .subtitle { font-size: 2.1rem; color: var(--primary); margin-bottom: 1.5rem; }
-    .hero .description { font-size: 1.3rem; color: var(--text-light); max-width: 700px; margin: 0 auto 3.5rem; }
-    .btn { padding: 1rem 2.5rem; background: var(--primary); color: #0B1120; font-weight: 600; border-radius: 9999px; transition: var(--transition); box-shadow: var(--shadow); font-size: 1.1rem; }
-    .btn:hover { background: var(--primary-dark); transform: translateY(-4px); }
-
-    section { padding: 7rem 0; }
-    .section-title { font-size: 3.2rem; text-align: center; margin-bottom: 4rem; color: var(--primary); }
-
-    .about-content { max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.2rem; color: var(--text-light); }
-    .about-content p { margin-bottom: 2rem; }
-
-    .grid-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem; }
-
-    .card { background: var(--card-bg); border-radius: 1.5rem; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); opacity: 0; transform: translateY(40px) scale(0.95); position: relative; cursor: pointer; }
-    .card.visible { opacity: 1; transform: translateY(0) scale(1); transition: opacity 0.8s ease, transform 0.8s ease; }
-    .card:hover { transform: translateY(-20px) scale(1.03); box-shadow: 0 30px 60px rgba(45,212,191,0.3); }
-    .card::before { content: ''; position: absolute; inset: -2px; background: linear-gradient(45deg, var(--primary), var(--accent)); border-radius: 1.5rem; opacity: 0; transition: opacity 0.5s; z-index: -1; }
-    .card:hover::before { opacity: 0.4; animation: glow 2s linear infinite; }
-    @keyframes glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .card-img { width: 100%; height: 260px; object-fit: cover; transition: transform 0.8s ease; }
-    .card:hover .card-img { transform: scale(1.15); }
-    .card-content { padding: 2rem; }
-    .card-title { font-size: 1.7rem; margin-bottom: 1rem; color: var(--primary); }
-    .card-desc { color: var(--text-light); margin-bottom: 2rem; font-size: 1.05rem; }
-    .card-links a { color: var(--primary); margin-right: 1.5rem; font-weight: 600; transition: color 0.3s; }
-    .card-links a:hover { color: var(--accent); }
-
-    .contact-content { text-align: center; max-width: 700px; margin: 0 auto; }
-    .contact-info { font-size: 1.3rem; color: var(--text-light); margin-bottom: 4rem; }
-    .social-links { display: flex; justify-content: center; gap: 3rem; font-size: 2.8rem; }
-    .social-links a { color: var(--text-light); transition: var(--transition); }
-    .social-links a:hover { color: var(--primary); transform: translateY(-8px); }
-
-    .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 1024px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .mobile-menu-btn { display: block; }
-      .hero h1 { font-size: 3.2rem; }
-      .hero .subtitle { font-size: 1.8rem; }
-      .grid-container { grid-template-columns: 1fr; }
-      .hero-photo { width: 240px; height: 240px; }
-    }
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 2.8rem; }
-      .section-title { font-size: 2.8rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <nav>
-    <div class="container nav-container">
-      <div class="logo">Yogesh Luitel</div>
-      <div class="nav-links">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#blog" class="nav-link">Blog</a>
-        <a href="#contact" class="nav-link">Contact</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-sun"></i></button>
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">YL</span>
+        <span class="brand-text">Yogesh Luitel</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="sr-only">Open menu</span>
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+
+        <div class="nav-menu" id="navMenu">
+          <a class="nav-link" href="#about">About</a>
+          <a class="nav-link" href="#projects">Projects</a>
+          <a class="nav-link" href="#research">Research</a>
+          <a class="nav-link" href="#experience">Experience</a>
+          <a class="nav-link" href="#skills">Skills</a>
+          <a class="nav-link" href="#contact">Contact</a>
+          <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+            <span class="theme-icon" aria-hidden="true">◐</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">EdTech builder • CS Instructor • Early-career researcher</p>
+          <h1 class="headline">
+            Building practical learning systems — and studying how policy and governance shape responsible AI adoption.
+          </h1>
+          <p class="subhead">
+            I work at the intersection of <strong>education technology</strong>, <strong>adaptive learning</strong>, and
+            <strong>responsible AI</strong>. I care about impact in real classrooms and clarity in how systems are designed,
+            measured, and governed.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-ghost" href="#research">Research focus</a>
+            <a class="btn btn-ghost" href="Academic_CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-card">
+              <div class="meta-title">Current role</div>
+              <div class="meta-value">Computer Science Instructor (Grade 11–12)</div>
+              <div class="meta-note">Kathmandu, Nepal</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-title">Built & shipped</div>
+              <div class="meta-value">NEB Gyan (10,000+ users)</div>
+              <div class="meta-note">Full-stack platform + analytics</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Quick profile">
+          <div class="panel-card">
+            <div class="panel-title">Focus areas</div>
+            <ul class="chip-list">
+              <li class="chip">Technology policy</li>
+              <li class="chip">Cybersecurity policy</li>
+              <li class="chip">Responsible AI</li>
+              <li class="chip">Human–AI interaction</li>
+              <li class="chip">EdTech systems</li>
+              <li class="chip">ICT4D</li>
+            </ul>
+          </div>
+
+          <div class="panel-card">
+            <div class="panel-title">Links</div>
+            <div class="link-list">
+              <a class="link-row" href="mailto:yogeshluitel9@gmail.com">
+                <span>Email</span><span class="muted">yogeshluitel9@gmail.com</span>
+              </a>
+              <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
+                <span>GitHub</span><span class="muted">yogesh0224</span>
+              </a>
+              <!-- Replace with your real LinkedIn -->
+              <a class="link-row" href="#" target="_blank" rel="noopener">
+                <span>LinkedIn</span><span class="muted">add link</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="panel-card subtle">
+            <div class="panel-title">What I’m known for</div>
+            <p class="muted">
+              Shipping real systems, explaining design tradeoffs clearly, and caring about how technology affects learners,
+              institutions, and policy.
+            </p>
+          </div>
+        </aside>
       </div>
-      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu"><i class="fas fa-bars"></i></button>
-    </div>
-  </nav>
+    </section>
 
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-close" id="mobile-close" aria-label="Close menu"><i class="fas fa-times"></i></button>
-    <a href="#home" class="mobile-menu-link active">Home</a>
-    <a href="#about" class="mobile-menu-link">About</a>
-    <a href="#projects" class="mobile-menu-link">Projects</a>
-    <a href="#blog" class="mobile-menu-link">Blog</a>
-    <a href="#contact" class="mobile-menu-link">Contact</a>
-    <button id="mobile-theme-toggle" class="theme-toggle"><i class="fas fa-sun"></i> Toggle Theme</button>
-  </div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <h2>About</h2>
+          <p class="section-subtitle">
+            A practical builder with a research mindset — focused on learning systems and the socio-technical questions around them.
+          </p>
+        </div>
 
-  <section id="home" class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content fade-in">
-      <img src="973067ab-f446-46fb-9990-32b17b9b463c.png" alt="Yogesh Luitel" class="hero-photo">
-      <h1>Yogesh Luitel</h1>
-      <p class="subtitle">AI Educator & Researcher</p>
-      <p class="description">Passionate about bridging AI and education through human-centric, ethical, and innovative solutions for the next generation of learners.</p>
-      <a href="#projects" class="btn">View My Work</a>
-    </div>
-  </section>
+        <div class="grid two">
+          <div class="card">
+            <h3 class="card-title">Short bio</h3>
+            <p>
+              I’m a Bachelor of Information Technology (Honors) graduate and a Computer Science instructor.
+              I’ve worked as an undergraduate research assistant, exploring AI-driven adaptive learning systems
+              and student performance analytics.
+            </p>
+            <p class="muted">
+              My long-term direction is to contribute to EdTech and technology policy research—especially in contexts where resources,
+              infrastructure, and governance constraints matter.
+            </p>
+          </div>
 
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title fade-in">About Me</h2>
-      <div class="about-content fade-in">
-        <p>I believe education should empower, not constrain. As an IT professional with expertise in Python and back-end development, I am passionate about using technology to redefine how students learn and engage with knowledge.</p>
-        <p>My focus is on creating solutions that make education more interactive, accessible, and aligned with the digital future.</p>
-        <p>Driven by curiosity and impact, I aim to bridge the gap between traditional learning and modern technological opportunities, shaping experiences that equip learners with the skills and mindset to thrive in a rapidly evolving world.</p>
-      </div>
-    </div>
-  </section>
+          <div class="card">
+            <h3 class="card-title">Education</h3>
+            <ul class="list">
+              <li>
+                <strong>Bachelor of Information Technology (Honors)</strong>
+                <div class="muted">Phoenix College of Management & IT Studies (affiliated to Lincoln University College, Malaysia)</div>
+                <div class="muted">CGPA: 3.76/4.0</div>
+              </li>
+              <li class="muted small">
+                Relevant coursework: Data Structures & Algorithms, Compiler Design, DBMS, AI, Software Engineering, Cyber Technology & Policy Analysis
+              </li>
+            </ul>
+          </div>
+        </div>
 
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title fade-in">Featured Projects</h2>
-      <div id="projects-grid" class="grid-container"></div>
-    </div>
-  </section>
-
-  <section id="blog">
-    <div class="container">
-      <h2 class="section-title fade-in">Insights & Writing</h2>
-      <div id="blog-grid" class="grid-container"></div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title fade-in">Get in Touch</h2>
-      <div class="contact-content fade-in">
-        <p class="contact-info">Open to collaborations, research partnerships, speaking engagements, or just a conversation about AI in education.</p>
-        <p class="contact-info"><strong>Email:</strong> <a href="mailto:yogeshluitel9@gmail.com" style="color:var(--primary);">yogeshluitel9@gmail.com</a></p>
-        <div class="social-links">
-          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <div class="callout">
+          <div class="callout-title">What this portfolio emphasizes</div>
+          <p class="muted">
+            Clear projects, credible scope, and research direction — not hype.
+            You’ll see what I built, what I’m exploring, and how I think.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    const toggleDesktop = document.getElementById('theme-toggle');
-    const toggleMobile = document.getElementById('mobile-theme-toggle');
-    const updateIcon = (btn, isDark) => { if (btn) btn.querySelector('i').className = isDark ? 'fas fa-moon' : 'fas fa-sun'; };
-    [toggleDesktop, toggleMobile].forEach(toggle => {
-      if (toggle) {
-        toggle.addEventListener('click', () => {
-          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-          document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-          updateIcon(toggleDesktop, !isDark);
-          updateIcon(toggleMobile, !isDark);
-        });
-      }
-    });
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <h2>Selected projects</h2>
+          <p class="section-subtitle">
+            Three projects that represent my current direction: EdTech at scale, adaptive tutoring prototypes, and interactive knowledge systems.
+          </p>
+        </div>
 
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const closeBtn = document.getElementById('mobile-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
-    closeBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    document.querySelectorAll('.mobile-menu-link').forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+        <div class="project-grid">
+          <!-- Project 1 -->
+          <article class="project card">
+            <div class="project-top">
+              <h3 class="project-title">NEB Gyan — Educational Platform</h3>
+              <p class="project-badge">10,000+ users • Full-stack</p>
+            </div>
+            <p class="muted">
+              A free learning platform with +2 notes, entrance mock tests, analytics, and progress tracking.
+              Built with scalable backend architecture and REST APIs.
+            </p>
 
-    const projectsData = [
-      { img: "https://cdn.dribbble.com/userupload/18256700/file/original-31256d8a7071293cd22a2c9632dee4e1.png", title: "Adaptive AI Tutor with Cognitive Modeling", desc: "Full-stack intelligent tutoring system using Deep Knowledge Tracing (LSTMs), contextual bandits, and CodeBERT for personalized programming education.", tech: ["python", "brain", "server", "hugging-face"], links: [{icon: "github", url: "https://github.com/yogesh0224/Adaptive-Tutor"}, {icon: "external-link-alt", url: "#"}] },
-      { img: "https://cambridge-intelligence.com/wp-content/uploads/2025/06/starburst-700x553-1.png", title: "Knowledge Constellation", desc: "Immersive 3D knowledge graph platform built with Three.js, enabling dynamic visualization and adaptive learner analytics.", tech: ["js", "server", "chart-line"], links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] },
-      { img: "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41467-023-38569-4/MediaObjects/41467_2023_38569_Fig1_HTML.png", title: "Privacy-Preserving Federated Learning", desc: "Distributed ML framework using TensorFlow Federated for secure, ethical AI applications in education.", tech: ["brain", "lock", "python"], links: [{icon: "github", url: "#"}, {icon: "external-link-alt", url: "#"}] }
-    ];
+            <div class="tags">
+              <span class="tag">Python</span>
+              <span class="tag">Django</span>
+              <span class="tag">DRF</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">Redis</span>
+              <span class="tag">HTML/CSS/JS</span>
+            </div>
 
-    const blogsData = [
-      { img: "https://erepublic.brightspotcdn.com/dims4/default/72e4cc4/2147483647/strip/false/crop/4160x2250+0+0/resize/1486x804!/quality/90/?url=http%3A%2F%2Ferepublic-brightspot.s3.us-west-2.amazonaws.com%2F40%2Fe6%2Fe34580384d0dac9ccb75d70b5373%2Fai-bias-or-dilemma.jpg", title: "Human-Centric AI in Education", desc: "Reflections on designing ethical AI systems that empower teachers and personalize learning without compromising privacy.", link: "blog/human-centric-ai-in-education.html" },
-      { img: "https://www.shutterstock.com/image-photo/agentic-ai-journey-insurance-keep-600nw-2645097637.jpg", title: "Ethical Considerations in AI-Driven Education", desc: "Exploring the principles of responsible AI deployment in classrooms and beyond.", link: "blog/ethical-considerations-ai-education.html" },
-      { img: "https://er.educause.edu/-/media/images/articles/2024/08/er24_065_headerart_1600x900.jpg", title: "Personalized Learning at Scale with AI", desc: "How adaptive systems are transforming equitable access to quality education.", link: "blog/personalized-learning-at-scale.html" }
-    ];
+            <div class="project-actions">
+              <button class="btn btn-ghost" data-modal="m-neb">Read details</button>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live link (add)</a>
+            </div>
+          </article>
 
-    function renderCards(containerId, data, isProject = true) {
-      const container = document.getElementById(containerId);
-      container.innerHTML = '';
-      data.forEach((item, index) => {
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = `
-          <img src="${item.img}" alt="${item.title}" class="card-img" loading="lazy">
-          <div class="card-content">
-            <h3 class="card-title">${item.title}</h3>
-            <p class="card-desc">${item.desc}</p>
-            ${isProject ? `
-              <div class="tech-stack">
-                ${item.tech.map(t => `<i class="fas fa-${t.includes('hugging') ? 'brain' : t}"></i>`).join('')}
-              </div>
-              <div class="card-links">
-                ${item.links.map(l => `<a href="${l.url}" target="_blank"><i class="fas fa-${l.icon}"></i> ${l.icon === 'github' ? 'GitHub' : 'Demo'}</a>`).join('')}
-              </div>
-            ` : `<a href="${item.link}" style="color: var(--primary); font-weight: bold;">Read Article →</a>`}
+          <!-- Project 2 -->
+          <article class="project card">
+            <div class="project-top">
+              <h3 class="project-title">Adaptive AI Tutor (Prototype)</h3>
+              <p class="project-badge">Research prototype</p>
+            </div>
+            <p class="muted">
+              A tutoring prototype exploring mastery prediction and learning difficulty classification using knowledge tracing and contextual decision methods.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Deep Knowledge Tracing</span>
+              <span class="tag">LSTM</span>
+              <span class="tag">Contextual bandits</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">Python</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-ghost" data-modal="m-tutor">Read details</button>
+              <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project card">
+            <div class="project-top">
+              <h3 class="project-title">Knowledge Constellation — 3D Knowledge Graph</h3>
+              <p class="project-badge">Visualization + learning analytics</p>
+            </div>
+            <p class="muted">
+              A 3D knowledge graph visualization for exploring concepts and relationships, paired with analytics for learner pathways and clustering.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Three.js</span>
+              <span class="tag">WebGL</span>
+              <span class="tag">Django</span>
+              <span class="tag">Analytics</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="btn btn-ghost" data-modal="m-kg">Read details</button>
+              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Repo (add)</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="note">
+          <p class="muted small">
+            Tip: Replace the “add” links with your real live URL / repo URLs. Don’t leave “#” in production.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="section" id="research">
+      <div class="container">
+        <div class="section-head">
+          <h2>Research</h2>
+          <p class="section-subtitle">
+            My work centers on how learning systems are designed, evaluated, and governed—especially in developing contexts.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3 class="card-title">Research interests</h3>
+            <ul class="list compact">
+              <li><strong>AI governance</strong> and responsible adoption in public/education systems</li>
+              <li><strong>Cybersecurity & cyber policy</strong> (literacy, governance gaps, digital ecosystems)</li>
+              <li><strong>Socio-technical systems</strong>: real-world constraints, institutional readiness, data ethics</li>
+              <li><strong>Human–AI interaction</strong> in learning: trust, feedback, teacher-in-the-loop design</li>
+              <li><strong>EdTech evaluation</strong>: measurable learning outcomes, fairness, and practical deployment</li>
+            </ul>
           </div>
-        `;
-        container.appendChild(card);
-        setTimeout(() => card.classList.add('visible'), 300 * index);
-      });
-    }
 
-    renderCards('projects-grid', projectsData, true);
-    renderCards('blog-grid', blogsData, false);
+          <div class="card">
+            <h3 class="card-title">Working papers / research in progress</h3>
+            <div class="stack">
+              <div class="paper">
+                <div class="paper-title">AI-Enhanced Educational Governance in Developing Nations: A Case Study of Nepal</div>
+                <div class="paper-meta">Status: Drafting</div>
+              </div>
+              <div class="paper">
+                <div class="paper-title">Cyber Policy Gaps and Digital Literacy Barriers in Nepal’s Digital Ecosystem</div>
+                <div class="paper-meta">Status: Concept stage</div>
+              </div>
+              <div class="paper">
+                <div class="paper-title">Responsible AI Adoption in Low-Resource Academic Institutions</div>
+                <div class="paper-meta">Status: Data collection stage</div>
+              </div>
+            </div>
+            <p class="muted small">
+              I’m prioritizing careful framing and evidence before public release.
+            </p>
+          </div>
+        </div>
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-  </script>
+        <div class="card">
+          <h3 class="card-title">Undergraduate research experience</h3>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-when">2023–2024</div>
+              <div class="timeline-what">
+                <div class="timeline-title">Undergraduate Research Assistant — Phoenix College of Management (Kathmandu)</div>
+                <ul class="list compact muted">
+                  <li>Studied AI-driven adaptive learning systems for Nepal’s secondary-level education</li>
+                  <li>Developed ML-based student performance analysis to identify conceptual weaknesses</li>
+                  <li>Worked with mixed-method evaluation (qual + quant)</li>
+                  <li>Supported research design, dataset preparation, and interpretation</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="muted small">
+          (All research points above come directly from your CV.) 
+          :contentReference[oaicite:3]{index=3}
+        </p>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="section-subtitle">Teaching and building systems — with a strong focus on structure, clarity, and student outcomes.</p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3 class="card-title">Teaching</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-when">2024–Present</div>
+                <div class="timeline-what">
+                  <div class="timeline-title">Computer Science Instructor — Xavier International College</div>
+                  <ul class="list compact muted">
+                    <li>Teach Grade 11–12 CS: Python, DBMS, Software Development</li>
+                    <li>Run labs, supervise projects, and mentor students</li>
+                    <li>Create structured materials and analytics-based learning workflows</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <p class="muted small">:contentReference[oaicite:4]{index=4}</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">What I bring to teams</h3>
+            <ul class="list">
+              <li><strong>Real deployment mindset:</strong> scaling, reliability, and usable workflows (not just demos)</li>
+              <li><strong>Research-aligned engineering:</strong> measurable outcomes, careful evaluation, data ethics</li>
+              <li><strong>Communication:</strong> clear writeups, structured thinking, and teaching experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <h2>Skills</h2>
+          <p class="section-subtitle">A focused stack for building data-informed learning systems.</p>
+        </div>
+
+        <div class="grid three">
+          <div class="card">
+            <h3 class="card-title">Programming</h3>
+            <div class="pill-row">
+              <span class="pill">Python</span>
+              <span class="pill">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Frameworks</h3>
+            <div class="pill-row">
+              <span class="pill">Django</span>
+              <span class="pill">DRF</span>
+              <span class="pill">TensorFlow</span>
+              <span class="pill">Scikit-Learn</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Systems</h3>
+            <div class="pill-row">
+              <span class="pill">MySQL</span>
+              <span class="pill">PostgreSQL</span>
+              <span class="pill">Docker</span>
+              <span class="pill">Linux</span>
+              <span class="pill">REST APIs</span>
+              <span class="pill">Deployment</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3 class="card-title">Certifications</h3>
+            <ul class="list compact muted">
+              <li>Python with Django — IT Training Nepal (2023)</li>
+              <li>Machine Learning with Python — Code Himalaya (2023)</li>
+            </ul>
+            <p class="muted small">:contentReference[oaicite:5]{index=5}</p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Academic strengths</h3>
+            <ul class="list compact muted">
+              <li>Strong research motivation in AI governance and digital policy</li>
+              <li>Full-stack engineering experience with real users</li>
+              <li>Teaching experience with STEM curriculum</li>
+            </ul>
+            <p class="muted small">:contentReference[oaicite:6]{index=6}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="section-subtitle">
+            If you’d like to discuss research ideas, collaboration, or EdTech systems, feel free to reach out.
+          </p>
+        </div>
+
+        <div class="grid two">
+          <div class="card">
+            <h3 class="card-title">Email</h3>
+            <p class="muted">Fastest way to reach me:</p>
+            <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com">yogeshluitel9@gmail.com</a>
+
+            <div class="divider"></div>
+
+            <h3 class="card-title">Profiles</h3>
+            <div class="link-list">
+              <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
+                <span>GitHub</span><span class="muted">Projects & code</span>
+              </a>
+              <!-- Replace with real LinkedIn -->
+              <a class="link-row" href="#" target="_blank" rel="noopener">
+                <span>LinkedIn</span><span class="muted">Add your profile</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">A short note</h3>
+            <p class="muted">
+              I’m interested in projects that combine thoughtful system design with real-world constraints —
+              especially around learning systems, governance, and responsible AI.
+            </p>
+
+            <div class="divider"></div>
+
+            <p class="muted small">
+              If you want, I can also refactor this into a multi-page structure later
+              (Home / Projects / Research / Contact) — but this single-page version is ideal for first impression.
+            </p>
+          </div>
+        </div>
+
+        <footer class="footer">
+          <p class="muted small">© <span id="year"></span> Yogesh Luitel • Built with HTML/CSS/JS</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODALS -->
+  <dialog class="modal" id="m-neb" aria-label="NEB Gyan details">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h3>NEB Gyan — Educational Platform</h3>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          NEB Gyan is a free learning platform designed for +2 students and entrance prep workflows.
+          I built the backend architecture, REST APIs, authentication, and database optimizations, with analytics features for learner progress.
+        </p>
+        <ul class="list compact">
+          <li><strong>Impact:</strong> scaled to 10,000+ active users</li>
+          <li><strong>Features:</strong> notes, mock tests, progress tracking, weak-area identification</li>
+          <li><strong>Stack:</strong> Django + DRF, MySQL, Redis, HTML/CSS/JS</li>
+        </ul>
+        <p class="muted small">Based on your CV description. :contentReference[oaicite:7]{index=7}</p>
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live link (add)</a>
+        <button class="btn btn-ghost" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="m-tutor" aria-label="Adaptive AI Tutor details">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h3>Adaptive AI Tutor (Prototype)</h3>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          This prototype explores personalized learning with cognitive modeling techniques, including mastery prediction and adaptive decision policies.
+        </p>
+        <ul class="list compact">
+          <li><strong>Methods:</strong> Deep Knowledge Tracing (LSTM), contextual bandits, CodeBERT exploration</li>
+          <li><strong>Goal:</strong> predict mastery and classify learning difficulty to adapt practice sequences</li>
+        </ul>
+        <p class="muted small">Aligned with your CV project summary. :contentReference[oaicite:8]{index=8}</p>
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">Open GitHub</a>
+        <button class="btn btn-ghost" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog class="modal" id="m-kg" aria-label="Knowledge Constellation details">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <h3>Knowledge Constellation — 3D Knowledge Graph</h3>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          A 3D knowledge graph visualization to explore concepts and their relationships interactively, with analytics for learner pathways and concept clustering.
+        </p>
+        <ul class="list compact">
+          <li><strong>Frontend:</strong> Three.js visualization</li>
+          <li><strong>Backend:</strong> Django integration for analytics</li>
+        </ul>
+        <p class="muted small">Based on your CV project description. :contentReference[oaicite:9]{index=9}</p>
+      </div>
+      <div class="modal-actions">
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Repo (add)</a>
+        <button class="btn btn-ghost" data-close>Close</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
