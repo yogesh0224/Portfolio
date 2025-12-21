@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -54,7 +55,7 @@
           <p class="eyebrow">CS Instructor • Full-stack Developer • Early-career Researcher</p>
 
           <h1 class="headline">
-            Building learning systems that work in real world — with privacy, governance, and human experience in mind.
+            Building learning systems that work in real classrooms — with privacy, governance, and human experience in mind.
           </h1>
 
           <p class="subhead">
@@ -97,17 +98,6 @@
 
         <aside class="hero-panel" aria-label="Quick profile">
           <div class="panel-card">
-            <div class="panel-title">What I build</div>
-            <ul class="chip-list" aria-label="Focus areas">
-              <li class="chip">Learning platforms</li>
-              <li class="chip">Analytics & feedback loops</li>
-              <li class="chip">Adaptive tutoring prototypes</li>
-              <li class="chip">Privacy-minded system design</li>
-              <li class="chip">Policy-aware deployment</li>
-            </ul>
-          </div>
-
-          <div class="panel-card">
             <div class="panel-title">Links</div>
             <div class="link-list" aria-label="Links">
               <a class="link-row" href="mailto:yogeshluitel9@gmail.com">
@@ -121,14 +111,6 @@
               </a>
             </div>
             <p class="toast muted small" id="toast" role="status" aria-live="polite"></p>
-          </div>
-
-          <div class="panel-card subtle">
-            <div class="panel-title">What I’m known for</div>
-            <p class="muted small">
-              Shipping real systems, explaining design tradeoffs clearly, and caring about how technology affects learners,
-              institutions, and governance.
-            </p>
           </div>
         </aside>
       </div>
@@ -168,13 +150,6 @@
             </ul>
           </article>
         </div>
-
-        <div class="callout reveal">
-          <div class="callout-title">What you’ll see here</div>
-          <p class="muted">
-            Real systems I’ve shipped, research direction I’m pursuing, and clear explanations of tradeoffs — without hype.
-          </p>
-        </div>
       </div>
     </section>
 
@@ -189,7 +164,6 @@
         </div>
 
         <div class="project-grid">
-          <!-- Project 1 -->
           <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">NEB Gyan — Educational Platform</h3>
@@ -218,7 +192,6 @@
             </div>
           </article>
 
-          <!-- Project 2 -->
           <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">Adaptive AI Tutor (Prototype)</h3>
@@ -246,7 +219,6 @@
             </div>
           </article>
 
-          <!-- Project 3 -->
           <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">Knowledge Constellation — 3D Knowledge Graph</h3>
@@ -454,224 +426,341 @@
     </section>
   </main>
 
-  <!-- CASE STUDY MODALS -->
+  <!-- =======================
+       CASE STUDY MODALS (PRO)
+       ======================= -->
+
+  <!-- NEB Gyan -->
   <dialog class="modal" id="m-neb" aria-label="NEB Gyan case study">
     <div class="modal-inner">
-      <div class="modal-head">
-        <div class="modal-titleblock">
-          <div class="modal-kicker">Case study</div>
-          <h3>NEB Gyan — Educational Platform</h3>
+      <header class="modal-head">
+        <div class="modal-head-left">
+          <div class="modal-kicker">CASE STUDY</div>
+          <h3 class="modal-title">NEB Gyan — Educational Platform</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
-      </div>
+      </header>
 
-      <div class="modal-body">
-        <div class="case-hero">
-          <div class="case-hero-title">From scattered materials to a reliable learning workflow</div>
-          <p class="case-hero-sub">A production platform for +2 learners: content, practice, and feedback — designed to hold up during peak exam demand.</p>
+      <div class="modal-shell" data-case-shell>
+        <aside class="case-nav" aria-label="Case study navigation">
+          <button class="case-nav-btn is-active" data-case-nav="neb-overview">Overview</button>
+          <button class="case-nav-btn" data-case-nav="neb-problem">Problem</button>
+          <button class="case-nav-btn" data-case-nav="neb-solution">Solution</button>
+          <button class="case-nav-btn" data-case-nav="neb-architecture">Architecture</button>
+          <button class="case-nav-btn" data-case-nav="neb-ux">UX decisions</button>
+          <button class="case-nav-btn" data-case-nav="neb-outcomes">Outcomes</button>
 
-          <div class="case-metrics" aria-label="Project highlights">
-            <div class="metric"><div class="metric-k">Users</div><div class="metric-v">10,000+ active</div></div>
-            <div class="metric"><div class="metric-k">Role</div><div class="metric-v">Founder • Full-stack</div></div>
-            <div class="metric"><div class="metric-k">Focus</div><div class="metric-v">Scale + analytics</div></div>
+          <div class="case-nav-foot">
+            <div class="case-nav-note">Want a quick walkthrough?</div>
+            <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
           </div>
-        </div>
+        </aside>
 
-        <div class="case-columns">
-          <section class="case-section" aria-label="Problem">
-            <h4 class="case-title">Problem <span class="case-tag">Why it mattered</span></h4>
+        <div class="modal-body" data-case-body>
+          <section class="case-hero" id="neb-overview">
+            <div class="case-hero-top">
+              <h4 class="case-hero-title">From scattered prep resources to a reliable learning workflow</h4>
+              <p class="case-hero-sub">
+                A production platform for +2 learners: content, practice, and feedback — designed to hold up during peak exam demand.
+              </p>
+            </div>
+
+            <div class="case-metrics" aria-label="Project highlights">
+              <div class="metric">
+                <div class="metric-k">Users</div>
+                <div class="metric-v">10,000+ active</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Role</div>
+                <div class="metric-v">Founder • Full-stack</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Focus</div>
+                <div class="metric-v">Scale + analytics</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-section" id="neb-problem">
+            <div class="case-section-head">
+              <h4 class="case-title">Problem</h4>
+              <span class="case-chip">Why it mattered</span>
+            </div>
             <ul class="list compact">
-              <li>Prep content was scattered across groups, PDFs, and inconsistent sources.</li>
-              <li>Students lacked visibility into progress, weak topics, and next best actions.</li>
-              <li>Peak exam traffic caused many learning sites to slow down or fail.</li>
+              <li>Students relied on scattered notes, groups, and PDFs with uneven quality.</li>
+              <li>Mock tests existed, but learners couldn’t see progress or weak areas.</li>
+              <li>Many resources broke under traffic during exam season.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="Solution">
-            <h4 class="case-title">Solution <span class="case-tag">What I built</span></h4>
+          <section class="case-section" id="neb-solution">
+            <div class="case-section-head">
+              <h4 class="case-title">Solution</h4>
+              <span class="case-chip">What I built</span>
+            </div>
             <ul class="list compact">
-              <li>Structured notes + timed mock tests + progress dashboards.</li>
-              <li>Topic-level performance signals to surface weaknesses early.</li>
-              <li>Backend built for stability: caching, DB indexing, optimized endpoints.</li>
-            </ul>
-          </section>
-        </div>
-
-        <div class="case-sections">
-          <section class="case-section" aria-label="Architecture">
-            <h4 class="case-title">Architecture <span class="case-tag">How it works</span></h4>
-            <ul class="list compact">
-              <li><strong>Django + DRF</strong> for modular backend services and clean API boundaries.</li>
-              <li><strong>MySQL</strong> as primary datastore; <strong>Redis</strong> for caching + performance.</li>
-              <li>Analytics events modeled for measurable progress and reporting.</li>
+              <li>Structured notes + timed mock tests + a clear dashboard.</li>
+              <li>Topic-level performance signals to highlight weak areas.</li>
+              <li>Reliable backend patterns: auth, caching, and DB optimization.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="UX decisions">
-            <h4 class="case-title">UX decisions <span class="case-tag">User-first</span></h4>
+          <section class="case-section" id="neb-architecture">
+            <div class="case-section-head">
+              <h4 class="case-title">Architecture</h4>
+              <span class="case-chip">How it works</span>
+            </div>
             <ul class="list compact">
-              <li>Clear loop: <strong>learn → practice → feedback → next action</strong>.</li>
-              <li>Low cognitive load: consistent navigation + predictable test flow.</li>
-              <li>Mobile-first patterns (many learners primarily use phones).</li>
+              <li><strong>Django + DRF</strong> for modular services and clean API boundaries.</li>
+              <li><strong>MySQL</strong> for core data; <strong>Redis</strong> for caching and performance.</li>
+              <li>Analytics events modeled for progress tracking and reporting.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="Outcome and next">
-            <h4 class="case-title">Outcome & next <span class="case-tag">Impact</span></h4>
+          <section class="case-section" id="neb-ux">
+            <div class="case-section-head">
+              <h4 class="case-title">UX decisions</h4>
+              <span class="case-chip">Clarity first</span>
+            </div>
             <ul class="list compact">
-              <li>Scaled to <strong>10,000+ active users</strong> with stable performance during peaks.</li>
-              <li>Next: privacy-first analytics docs, teacher dashboards, and learning impact measurement.</li>
+              <li>Make the loop obvious: <strong>learn → practice → feedback → next action</strong>.</li>
+              <li>Reduce cognitive load: consistent test flow, clean result screens.</li>
+              <li>Mobile-first constraints (most learners use phones).</li>
             </ul>
           </section>
+
+          <section class="case-section" id="neb-outcomes">
+            <div class="case-section-head">
+              <h4 class="case-title">Outcomes</h4>
+              <span class="case-chip">Impact + next</span>
+            </div>
+            <ul class="list compact">
+              <li>Scaled to <strong>10,000+ active users</strong> with stable peak performance.</li>
+              <li>Next: privacy-first analytics docs (minimization + retention) and teacher dashboards.</li>
+            </ul>
+          </section>
+
+          <div class="case-end-space" aria-hidden="true"></div>
         </div>
       </div>
 
-      <div class="modal-actions">
-        <div class="actions-left muted small">Want a quick walkthrough? Use “Request a demo” and I’ll share a short tour.</div>
+      <footer class="modal-actions">
+        <div class="actions-left muted small">Tip: use the left menu to jump between sections (no scrolling pain).</div>
         <div class="actions-right">
-          <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
           <button class="btn btn-ghost" data-close>Close</button>
         </div>
-      </div>
+      </footer>
     </div>
   </dialog>
 
+  <!-- Adaptive Tutor -->
   <dialog class="modal" id="m-tutor" aria-label="Adaptive AI Tutor case study">
     <div class="modal-inner">
-      <div class="modal-head">
-        <div class="modal-titleblock">
-          <div class="modal-kicker">Case study</div>
-          <h3>Adaptive AI Tutor — Prototype</h3>
+      <header class="modal-head">
+        <div class="modal-head-left">
+          <div class="modal-kicker">CASE STUDY</div>
+          <h3 class="modal-title">Adaptive AI Tutor (Prototype)</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
-      </div>
+      </header>
 
-      <div class="modal-body">
-        <div class="case-hero">
-          <div class="case-hero-title">A prototype for mastery-aware practice sequencing</div>
-          <p class="case-hero-sub">Exploring how to model what a learner knows and adapt practice using learning-science-inspired ML.</p>
+      <div class="modal-shell" data-case-shell>
+        <aside class="case-nav" aria-label="Case study navigation">
+          <button class="case-nav-btn is-active" data-case-nav="tutor-overview">Overview</button>
+          <button class="case-nav-btn" data-case-nav="tutor-problem">Problem</button>
+          <button class="case-nav-btn" data-case-nav="tutor-approach">Approach</button>
+          <button class="case-nav-btn" data-case-nav="tutor-eval">Evaluation</button>
+          <button class="case-nav-btn" data-case-nav="tutor-next">Next steps</button>
 
-          <div class="case-metrics" aria-label="Project highlights">
-            <div class="metric"><div class="metric-k">Type</div><div class="metric-v">Research prototype</div></div>
-            <div class="metric"><div class="metric-k">Methods</div><div class="metric-v">DKT • bandits • CodeBERT</div></div>
-            <div class="metric"><div class="metric-k">Goal</div><div class="metric-v">Adaptive loop</div></div>
+          <div class="case-nav-foot">
+            <div class="case-nav-note">Prototype repository</div>
+            <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">Open GitHub</a>
           </div>
-        </div>
+        </aside>
 
-        <div class="case-columns">
-          <section class="case-section" aria-label="Problem">
-            <h4 class="case-title">Problem <span class="case-tag">Learning gap</span></h4>
+        <div class="modal-body" data-case-body>
+          <section class="case-hero" id="tutor-overview">
+            <div class="case-hero-top">
+              <h4 class="case-hero-title">Mastery-aware practice sequencing</h4>
+              <p class="case-hero-sub">
+                Exploring how to model what a learner knows and adapt practice using learning-science-inspired ML.
+              </p>
+            </div>
+
+            <div class="case-metrics" aria-label="Project highlights">
+              <div class="metric">
+                <div class="metric-k">Type</div>
+                <div class="metric-v">Research prototype</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Methods</div>
+                <div class="metric-v">DKT • bandits • CodeBERT</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Goal</div>
+                <div class="metric-v">Adaptive tutoring loop</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-section" id="tutor-problem">
+            <div class="case-section-head">
+              <h4 class="case-title">Problem</h4>
+              <span class="case-chip">Learning gap</span>
+            </div>
             <p class="muted small">
-              Most practice systems treat all learners the same. In reality, mastery shifts over time and by concept—especially in programming.
+              Most practice systems treat all learners the same. In reality, mastery changes over time and by concept—especially in programming.
             </p>
             <ul class="list compact">
-              <li>Too-easy practice wastes time; too-hard practice kills motivation.</li>
-              <li>Without mastery modeling, recommendations become guesswork.</li>
+              <li>Practice can be too easy (waste time) or too hard (discourage).</li>
+              <li>Without mastery modeling, recommendations are guesswork.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="Approach">
-            <h4 class="case-title">Approach <span class="case-tag">Modeling</span></h4>
+          <section class="case-section" id="tutor-approach">
+            <div class="case-section-head">
+              <h4 class="case-title">Approach</h4>
+              <span class="case-chip">Modeling + policy</span>
+            </div>
             <ul class="list compact">
               <li><strong>Deep Knowledge Tracing (LSTM):</strong> predict mastery from interaction sequences.</li>
-              <li><strong>Contextual bandits:</strong> choose next item to balance learning + exploration.</li>
-              <li><strong>CodeBERT:</strong> explore code-aware representations for programming tasks.</li>
-            </ul>
-          </section>
-        </div>
-
-        <div class="case-sections">
-          <section class="case-section" aria-label="What it demonstrates">
-            <h4 class="case-title">What it demonstrates <span class="case-tag">Workflow</span></h4>
-            <ul class="list compact">
-              <li>Dataset prep → training → evaluation → iteration (repeatable pipeline).</li>
-              <li>Baseline comparisons + error analysis + calibration checks.</li>
-              <li>Safety-aware: tutoring logic can stay teacher-supervised.</li>
+              <li><strong>Contextual bandits:</strong> select next practice item to balance learning + exploration.</li>
+              <li><strong>CodeBERT exploration:</strong> code-aware representations for programming tasks.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="Next iteration">
-            <h4 class="case-title">Next iteration <span class="case-tag">Research-ready</span></h4>
+          <section class="case-section" id="tutor-eval">
+            <div class="case-section-head">
+              <h4 class="case-title">Evaluation</h4>
+              <span class="case-chip">What I measure</span>
+            </div>
             <ul class="list compact">
-              <li>Teacher-in-the-loop review of recommendations.</li>
-              <li>Privacy-aware logging (minimal, auditable events).</li>
-              <li>Stronger evaluation design with classroom-like tasks + robust baselines.</li>
+              <li>Baseline comparisons, error analysis by topic, and calibration checks.</li>
+              <li>Repeatable pipeline: dataset prep → training → evaluation → iteration.</li>
+              <li>Design constraints: logs minimal + teacher oversight possible.</li>
             </ul>
           </section>
+
+          <section class="case-section" id="tutor-next">
+            <div class="case-section-head">
+              <h4 class="case-title">Next steps</h4>
+              <span class="case-chip">Research-ready</span>
+            </div>
+            <ul class="list compact">
+              <li>Human-in-the-loop review for recommendations.</li>
+              <li>Privacy-aware logging with auditable events.</li>
+              <li>More classroom-like tasks and stronger baselines.</li>
+            </ul>
+          </section>
+
+          <div class="case-end-space" aria-hidden="true"></div>
         </div>
       </div>
 
-      <div class="modal-actions">
-        <div class="actions-left muted small">This is a prototype; I can share notes on evaluation + next steps.</div>
+      <footer class="modal-actions">
+        <div class="actions-left muted small">Use the left menu to jump sections; the content area scrolls independently.</div>
         <div class="actions-right">
-          <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">Open GitHub</a>
           <button class="btn btn-ghost" data-close>Close</button>
         </div>
-      </div>
+      </footer>
     </div>
   </dialog>
 
+  <!-- Knowledge Constellation -->
   <dialog class="modal" id="m-kg" aria-label="Knowledge Constellation case study">
     <div class="modal-inner">
-      <div class="modal-head">
-        <div class="modal-titleblock">
-          <div class="modal-kicker">Case study</div>
-          <h3>Knowledge Constellation — 3D Graph</h3>
+      <header class="modal-head">
+        <div class="modal-head-left">
+          <div class="modal-kicker">CASE STUDY</div>
+          <h3 class="modal-title">Knowledge Constellation — 3D Knowledge Graph</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
-      </div>
+      </header>
 
-      <div class="modal-body">
-        <div class="case-hero">
-          <div class="case-hero-title">Making concept structure visible</div>
-          <p class="case-hero-sub">A 3D knowledge graph prototype for exploring dependencies, discovering connections, and mapping learning pathways.</p>
+      <div class="modal-shell" data-case-shell>
+        <aside class="case-nav" aria-label="Case study navigation">
+          <button class="case-nav-btn is-active" data-case-nav="kg-overview">Overview</button>
+          <button class="case-nav-btn" data-case-nav="kg-problem">Problem</button>
+          <button class="case-nav-btn" data-case-nav="kg-solution">Solution</button>
+          <button class="case-nav-btn" data-case-nav="kg-next">Next steps</button>
 
-          <div class="case-metrics" aria-label="Project highlights">
-            <div class="metric"><div class="metric-k">UI</div><div class="metric-v">Three.js • WebGL</div></div>
-            <div class="metric"><div class="metric-k">Backend</div><div class="metric-v">Django analytics</div></div>
-            <div class="metric"><div class="metric-k">Use</div><div class="metric-v">Pathways</div></div>
+          <div class="case-nav-foot">
+            <div class="case-nav-note">Want details?</div>
+            <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
           </div>
-        </div>
+        </aside>
 
-        <div class="case-columns">
-          <section class="case-section" aria-label="Problem">
-            <h4 class="case-title">Problem <span class="case-tag">Why graphs</span></h4>
+        <div class="modal-body" data-case-body>
+          <section class="case-hero" id="kg-overview">
+            <div class="case-hero-top">
+              <h4 class="case-hero-title">Making concept structure visible</h4>
+              <p class="case-hero-sub">
+                A 3D knowledge graph prototype for exploring dependencies, discovering connections, and mapping learning pathways.
+              </p>
+            </div>
+
+            <div class="case-metrics" aria-label="Project highlights">
+              <div class="metric">
+                <div class="metric-k">UI</div>
+                <div class="metric-v">Three.js • WebGL</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Backend</div>
+                <div class="metric-v">Django analytics</div>
+              </div>
+              <div class="metric">
+                <div class="metric-k">Use</div>
+                <div class="metric-v">Pathways + clustering</div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-section" id="kg-problem">
+            <div class="case-section-head">
+              <h4 class="case-title">Problem</h4>
+              <span class="case-chip">Why graphs</span>
+            </div>
             <ul class="list compact">
               <li>Concept dependencies are hard to see in linear notes and syllabi.</li>
               <li>Learners miss prerequisites without realizing it.</li>
-              <li>Teachers lack tools to map pathways and bottlenecks.</li>
+              <li>Teachers need tools to visualize pathways and bottlenecks.</li>
             </ul>
           </section>
 
-          <section class="case-section" aria-label="Solution">
-            <h4 class="case-title">Solution <span class="case-tag">What I built</span></h4>
+          <section class="case-section" id="kg-solution">
+            <div class="case-section-head">
+              <h4 class="case-title">Solution</h4>
+              <span class="case-chip">What I built</span>
+            </div>
             <ul class="list compact">
-              <li>Interactive 3D exploration: zoom, focus, relationship cues, guided discovery.</li>
-              <li>Backend analytics for pathway tracking and concept clustering.</li>
-              <li>Designed for clarity: minimal UI and readable interaction patterns.</li>
+              <li>Interactive 3D graph: zoom, focus, relationship cues, exploration flow.</li>
+              <li>Backend analytics for pathways + concept clustering.</li>
+              <li>Designed for clarity: minimal UI, readable motion, guided discovery.</li>
             </ul>
           </section>
-        </div>
 
-        <div class="case-sections">
-          <section class="case-section" aria-label="How it can evolve">
-            <h4 class="case-title">How it can evolve <span class="case-tag">Next steps</span></h4>
+          <section class="case-section" id="kg-next">
+            <div class="case-section-head">
+              <h4 class="case-title">Next steps</h4>
+              <span class="case-chip">Evolve it</span>
+            </div>
             <ul class="list compact">
-              <li>Usability testing with teachers/students (task-based evaluation).</li>
-              <li>Privacy-by-design data model (minimization + retention).</li>
-              <li>Exports for curriculum planning and reporting.</li>
+              <li>Usability testing (task-based studies with teachers/students).</li>
+              <li>Privacy-by-design analytics (minimization + retention).</li>
+              <li>Export tools for curriculum planning and reporting.</li>
             </ul>
           </section>
+
+          <div class="case-end-space" aria-hidden="true"></div>
         </div>
       </div>
 
-      <div class="modal-actions">
-        <div class="actions-left muted small">If the repo is private, I can share a demo clip or a short write-up by email.</div>
+      <footer class="modal-actions">
+        <div class="actions-left muted small">This layout stays readable (and professional) in light mode too.</div>
         <div class="actions-right">
-          <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
           <button class="btn btn-ghost" data-close>Close</button>
         </div>
-      </div>
+      </footer>
     </div>
   </dialog>
 

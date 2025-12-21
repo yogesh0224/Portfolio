@@ -1,7 +1,8 @@
+// script.js
 (() => {
   const root = document.documentElement;
 
-  // ---------- Theme (persisted) ----------
+  // Theme (persisted)
   const stored = localStorage.getItem("theme");
   if (stored === "light" || stored === "dark") {
     root.setAttribute("data-theme", stored);
@@ -12,15 +13,14 @@
     root.setAttribute("data-theme", prefersLight ? "light" : "dark");
   }
 
-  const themeToggle = document.getElementById("themeToggle");
-  themeToggle?.addEventListener("click", () => {
+  document.getElementById("themeToggle")?.addEventListener("click", () => {
     const current = root.getAttribute("data-theme") || "dark";
     const next = current === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
   });
 
-  // ---------- Mobile nav ----------
+  // Mobile nav
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
@@ -43,7 +43,7 @@
 
   navMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
 
-  // ---------- Scroll spy ----------
+  // Scroll spy (main nav)
   const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
   const sections = navLinks
     .map((a) => document.querySelector(a.getAttribute("href")))
@@ -65,7 +65,7 @@
     sections.forEach((s) => io.observe(s));
   }
 
-  // ---------- Reveal animation ----------
+  // Reveal animation
   const prefersReduced =
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -88,11 +88,11 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // ---------- Year ----------
+  // Year
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // ---------- Copy helpers ----------
+  // Copy helpers
   const toast = document.getElementById("toast");
   const showToast = (msg) => {
     if (!toast) return;
@@ -122,12 +122,18 @@
     });
   });
 
-  // ---------- Modals ----------
+  // Modals + Case study navigation
+  const openModal = (dlg) => {
+    if (dlg && typeof dlg.showModal === "function") dlg.showModal();
+  };
+
   document.querySelectorAll("[data-modal]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const id = btn.getAttribute("data-modal");
       const dlg = id ? document.getElementById(id) : null;
-      if (dlg && typeof dlg.showModal === "function") dlg.showModal();
+      openModal(dlg);
+      // reset nav highlight to first
+      if (dlg) setupCaseNav(dlg);
     });
   });
 
@@ -147,4 +153,69 @@
       if (!inDialog) dlg.close();
     });
   });
+
+  function setupCaseNav(dlg) {
+    const body = dlg.querySelector("[data-case-body]");
+    const navButtons = Array.from(dlg.querySelectorAll("[data-case-nav]"));
+    if (!body || !navButtons.length) return;
+
+    const targets = navButtons
+      .map((b) => dlg.querySelector("#" + b.getAttribute("data-case-nav")))
+      .filter(Boolean);
+
+    // click to scroll within modal body
+    navButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = btn.getAttribute("data-case-nav");
+        const target = id ? dlg.querySelector("#" + id) : null;
+        if (!target) return;
+
+        body.scrollTo({
+          top: target.offsetTop - 8,
+          behavior: "smooth",
+        });
+      });
+    });
+
+    // observer to highlight current section (inside modal)
+    if (!("IntersectionObserver" in window)) return;
+
+    const clearActive = () => navButtons.forEach((b) => b.classList.remove("is-active"));
+    clearActive();
+    navButtons[0]?.classList.add("is-active");
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        // pick the most visible intersecting section
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!visible) return;
+
+        const id = visible.target.id;
+        const btn = navButtons.find((b) => b.getAttribute("data-case-nav") === id);
+        if (!btn) return;
+
+        clearActive();
+        btn.classList.add("is-active");
+      },
+      {
+        root: body,
+        threshold: [0.2, 0.35, 0.5, 0.65],
+        rootMargin: "-10% 0px -70% 0px",
+      }
+    );
+
+    targets.forEach((t) => io.observe(t));
+
+    // cleanup when modal closes
+    dlg.addEventListener(
+      "close",
+      () => {
+        try { io.disconnect(); } catch {}
+      },
+      { once: true }
+    );
+  }
 })();
