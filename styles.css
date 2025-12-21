@@ -17,6 +17,10 @@
   --max: 1120px;
 
   --focus: 0 0 0 3px rgba(110,231,255,.25);
+
+  /* Case study surfaces */
+  --surface: rgba(255,255,255,.045);
+  --surface2: rgba(255,255,255,.065);
 }
 
 [data-theme="light"]{
@@ -30,6 +34,9 @@
   --border: rgba(2,6,23,.12);
   --shadow: 0 18px 45px rgba(2,6,23,.10);
   --focus: 0 0 0 3px rgba(80,80,255,.18);
+
+  --surface: rgba(2,6,23,.04);
+  --surface2: rgba(2,6,23,.06);
 }
 
 *{ box-sizing: border-box; }
@@ -108,7 +115,7 @@ img{ max-width: 100%; display:block; }
   padding:.55rem .8rem;
   border-radius: 12px;
   color: var(--muted);
-  font-weight: 700;
+  font-weight: 800;
 }
 .nav-link:hover{
   background: var(--panel);
@@ -163,7 +170,7 @@ img{ max-width: 100%; display:block; }
 
 .eyebrow{
   display:inline-block;
-  font-weight: 800;
+  font-weight: 900;
   color: var(--muted);
   padding: .35rem .7rem;
   border-radius: 999px;
@@ -183,9 +190,7 @@ img{ max-width: 100%; display:block; }
   max-width: 65ch;
 }
 
-.hero-actions{
-  display:flex; flex-wrap:wrap; gap:.65rem; margin-bottom: 1.15rem;
-}
+.hero-actions{ display:flex; flex-wrap:wrap; gap:.65rem; margin-bottom: 1.15rem; }
 
 .btn{
   display:inline-flex;
@@ -197,7 +202,7 @@ img{ max-width: 100%; display:block; }
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
-  font-weight: 800;
+  font-weight: 900;
   cursor:pointer;
 }
 .btn:hover{ background: var(--card2); }
@@ -222,7 +227,7 @@ img{ max-width: 100%; display:block; }
   border-radius: var(--radius);
   padding: 1rem;
 }
-.meta-title{ font-size: .85rem; color: var(--muted2); font-weight: 800; }
+.meta-title{ font-size: .85rem; color: var(--muted2); font-weight: 900; }
 .meta-value{ font-weight: 900; margin-top: .2rem; letter-spacing: -.01em; }
 .meta-note{ color: var(--muted2); margin-top: .25rem; font-size: .92rem; }
 
@@ -234,6 +239,7 @@ img{ max-width: 100%; display:block; }
   box-shadow: var(--shadow);
   margin-bottom: .95rem;
 }
+.panel-card.subtle{ box-shadow:none; background: transparent; }
 .panel-title{ font-weight: 900; margin-bottom: .65rem; letter-spacing: -.01em; }
 
 .chip-list{ list-style:none; padding:0; margin:0; display:flex; flex-wrap:wrap; gap: .5rem; }
@@ -243,7 +249,7 @@ img{ max-width: 100%; display:block; }
   color: var(--muted);
   padding: .35rem .6rem;
   border-radius: 999px;
-  font-weight: 800;
+  font-weight: 900;
   font-size: .9rem;
 }
 
@@ -268,19 +274,9 @@ img{ max-width: 100%; display:block; }
 .muted{ color: var(--muted); }
 .small{ font-size: .92rem; }
 
-.divider{
-  height: 1px;
-  background: var(--border);
-  margin: .9rem 0;
-}
+.divider{ height: 1px; background: var(--border); margin: .9rem 0; }
 .note{ margin-top: .75rem; }
-
-#toast{
-  margin-top: .7rem;
-  min-height: 1.2em;
-  color: var(--muted);
-  font-weight: 800;
-}
+.toast{ margin: .7rem 0 0; min-height: 1.2em; }
 
 /* ---------- Sections ---------- */
 .section{ padding: 3.1rem 0; }
@@ -357,7 +353,7 @@ img{ max-width: 100%; display:block; }
   color: var(--muted);
   padding: .28rem .55rem;
   border-radius: 999px;
-  font-weight: 800;
+  font-weight: 900;
   font-size: .88rem;
 }
 
@@ -368,9 +364,8 @@ img{ max-width: 100%; display:block; }
   padding: .85rem .9rem;
   border-radius: 16px;
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
+  background: var(--surface);
 }
-[data-theme="light"] .mini-case{ background: rgba(2,6,23,.03); }
 .mini-label{ font-weight: 900; color: var(--text); margin-right: .25rem; }
 
 .project-actions{
@@ -389,9 +384,8 @@ img{ max-width: 100%; display:block; }
   padding: .9rem .9rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
-  background: rgba(255,255,255,.03);
+  background: var(--surface);
 }
-[data-theme="light"] .timeline-item{ background: rgba(2,6,23,.03); }
 .timeline-when{ font-weight: 900; color: var(--muted); }
 .timeline-title{ font-weight: 900; letter-spacing: -.01em; }
 
@@ -413,75 +407,251 @@ img{ max-width: 100%; display:block; }
   text-align:center;
 }
 
-/* ---------- Modal ---------- */
+/* =========================================================
+   MODAL / CASE STUDY UI — PREMIUM (fixes your screenshot)
+   ========================================================= */
+
+/* Make dialog itself clean and centered */
 .modal{
   border: none;
   padding: 0;
-  width: min(820px, calc(100% - 1.5rem));
+  width: min(920px, calc(100% - 1.25rem));
   border-radius: 18px;
   background: transparent;
 }
+
+/* Darker, richer backdrop */
 .modal::backdrop{
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,.62);
+  backdrop-filter: blur(10px);
 }
+
+/* Inner shell */
 .modal-inner{
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--bg) 82%, #000 18%);
+  border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  background: color-mix(in srgb, var(--bg) 92%, #000 8%);
   border-radius: 18px;
-  box-shadow: var(--shadow);
-  overflow:hidden;
+  box-shadow: 0 30px 90px rgba(0,0,0,.55);
+  overflow: hidden;
+  max-height: min(86vh, 860px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
+
+/* Light mode: true surface + stronger separation */
 [data-theme="light"] .modal-inner{
-  background: color-mix(in srgb, var(--bg) 90%, #fff 10%);
+  background: #ffffff;
+  box-shadow: 0 30px 85px rgba(2,6,23,.18);
 }
+
+/* Header with “case study” feel */
 .modal-head{
   display:flex;
   align-items:center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1rem 1.1rem;
+  padding: .95rem 1.1rem;
   border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--bg) 80%, transparent);
+  backdrop-filter: blur(10px);
 }
-.modal-head h3{ margin:0; letter-spacing:-.01em; }
+
+[data-theme="light"] .modal-head{
+  background: rgba(255,255,255,.86);
+}
+
+/* Title block adds hierarchy */
+.modal-titleblock{
+  display:flex;
+  flex-direction: column;
+  gap: .18rem;
+}
+.modal-kicker{
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--muted2);
+}
+.modal-head h3{
+  margin:0;
+  font-size: 1.05rem;
+  letter-spacing: -.02em;
+  font-weight: 900;
+}
+
+/* Better close button */
 .icon-btn{
   border: 1px solid var(--border);
   background: var(--card);
   color: var(--text);
   border-radius: 12px;
-  padding: .4rem .6rem;
+  padding: .5rem .7rem;
   cursor:pointer;
 }
 .icon-btn:hover{ background: var(--card2); }
-.modal-body{ padding: 1rem 1.1rem; }
-.modal-actions{
-  display:flex;
-  justify-content:flex-end;
-  gap:.6rem;
-  padding: 1rem 1.1rem;
-  border-top: 1px solid var(--border);
+
+/* Body scrolling area */
+.modal-body{
+  padding: 1rem 1.1rem 1.15rem;
+  overflow: auto;
 }
 
-.case-grid{
+/* Footer: sticky feel + spacing */
+.modal-actions{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .85rem;
+  padding: .9rem 1.1rem;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+}
+[data-theme="light"] .modal-actions{
+  background: rgba(255,255,255,.90);
+}
+
+.actions-left{ flex: 1; }
+.actions-right{
+  display:flex;
+  gap: .6rem;
+  justify-content:flex-end;
+  flex-wrap:wrap;
+}
+
+/* ---------- Case hero (this is where “ordinary” becomes premium) ---------- */
+.case-hero{
+  position: relative;
+  border-radius: 18px;
+  padding: 1rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent2) 34%, var(--border));
+  background:
+    radial-gradient(900px 280px at 5% 0%, rgba(110,231,255,.16), transparent 60%),
+    radial-gradient(900px 280px at 85% 10%, rgba(167,139,250,.18), transparent 55%),
+    color-mix(in srgb, var(--surface2) 55%, transparent);
+}
+
+[data-theme="light"] .case-hero{
+  background:
+    radial-gradient(900px 280px at 5% 0%, rgba(110,231,255,.22), transparent 60%),
+    radial-gradient(900px 280px at 85% 10%, rgba(167,139,250,.20), transparent 55%),
+    rgba(2,6,23,.03);
+}
+
+/* Accent bar at top */
+.case-hero::before{
+  content:"";
+  position:absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  height: 4px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, rgba(110,231,255,.95), rgba(167,139,250,.92));
+  opacity: .9;
+}
+
+.case-hero-title{
+  margin: .4rem 0 .2rem;
+  font-weight: 950;
+  letter-spacing: -.02em;
+  font-size: 1.18rem;
+}
+.case-hero-sub{
+  margin: 0;
+  color: var(--muted);
+  max-width: 78ch;
+}
+
+/* Metrics look like “executive summary” cards */
+.case-metrics{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .7rem;
+  margin-top: .9rem;
+}
+.metric{
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  padding: .8rem .85rem;
+}
+[data-theme="light"] .metric{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(2,6,23,.10);
+}
+.metric-k{
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-weight: 950;
+  color: var(--muted2);
+}
+.metric-v{
+  margin-top: .28rem;
+  font-weight: 950;
+  letter-spacing: -.01em;
+}
+
+/* Two columns for Problem/Solution */
+.case-columns{
   display:grid;
   grid-template-columns: 1fr 1fr;
-  gap: .9rem;
+  gap: .75rem;
+  margin-top: .9rem;
 }
-.case-block{
+
+/* Sections: stronger “card within modal” design */
+.case-section{
+  border-radius: 18px;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  background: rgba(255,255,255,.03);
-  padding: .9rem .95rem;
+  background: rgba(255,255,255,.035);
+  padding: 1rem 1rem;
 }
-[data-theme="light"] .case-block{ background: rgba(2,6,23,.03); }
-.case-kicker{
-  font-weight: 900;
-  color: var(--muted);
-  margin-bottom: .35rem;
-  text-transform: uppercase;
-  letter-spacing: .06em;
+
+[data-theme="light"] .case-section{
+  background: rgba(2,6,23,.03);
+  border: 1px solid rgba(2,6,23,.10);
+}
+
+/* Section heading: clear + label chip */
+.case-title{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: .8rem;
+  margin: 0 0 .55rem;
+  font-weight: 950;
+  letter-spacing: -.01em;
+}
+.case-tag{
   font-size: .78rem;
+  font-weight: 950;
+  letter-spacing: .02em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.04);
+  padding: .28rem .55rem;
+  border-radius: 999px;
+  white-space: nowrap;
 }
+[data-theme="light"] .case-tag{
+  background: rgba(255,255,255,.65);
+}
+
+/* Extra spacing for lower sections */
+.case-sections{
+  display:grid;
+  gap: .75rem;
+  margin-top: .75rem;
+}
+
+/* Lists in modal: more readable */
+.modal-body .list{ margin-top: .55rem; }
+.modal-body .list li{ margin: .38rem 0; }
 
 /* ---------- Reveal animation ---------- */
 .reveal{
@@ -506,8 +676,10 @@ img{ max-width: 100%; display:block; }
   .grid.two{ grid-template-columns: 1fr; }
   .grid.three{ grid-template-columns: 1fr; }
   .timeline-item{ grid-template-columns: 1fr; }
-  .case-grid{ grid-template-columns: 1fr; }
   .section-head{ flex-direction: column; align-items:flex-start; }
+
+  .case-metrics{ grid-template-columns: 1fr; }
+  .case-columns{ grid-template-columns: 1fr; }
 
   .nav-toggle{ display:inline-flex; }
   .nav-menu{

@@ -37,14 +37,13 @@
   document.addEventListener("click", (e) => {
     if (!navMenu || !navToggle) return;
     const target = e.target;
-    const clickedInside =
-      navMenu.contains(target) || navToggle.contains(target);
+    const clickedInside = navMenu.contains(target) || navToggle.contains(target);
     if (!clickedInside) closeMenu();
   });
 
   navMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
 
-  // ---------- Scroll spy (active nav link) ----------
+  // ---------- Scroll spy ----------
   const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
   const sections = navLinks
     .map((a) => document.querySelector(a.getAttribute("href")))
@@ -63,7 +62,6 @@
       },
       { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
     );
-
     sections.forEach((s) => io.observe(s));
   }
 
@@ -99,12 +97,8 @@
   const showToast = (msg) => {
     if (!toast) return;
     toast.textContent = msg;
-    toast.classList.add("is-visible");
     clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => {
-      toast.textContent = "";
-      toast.classList.remove("is-visible");
-    }, 2200);
+    showToast._t = setTimeout(() => (toast.textContent = ""), 2200);
   };
 
   document.querySelectorAll("[data-copy]").forEach((btn) => {
@@ -114,7 +108,6 @@
         await navigator.clipboard.writeText(value);
         showToast("Copied to clipboard.");
       } catch {
-        // Fallback
         const ta = document.createElement("textarea");
         ta.value = value;
         ta.setAttribute("readonly", "");
