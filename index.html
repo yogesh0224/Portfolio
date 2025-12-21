@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light">
   <title>Yogesh Luitel | Portfolio</title>
-  <meta name="description" content="Yogesh Luitel — EdTech builder, CS instructor, and early-career researcher exploring responsible AI, AI governance, cyber policy, and adaptive learning systems." />
+  <meta name="description" content="Yogesh Luitel — CS instructor and developer building education platforms, exploring responsible AI in education and cybersecurity policy." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +31,13 @@
         </button>
 
         <div class="nav-menu" id="navMenu">
-          <a class="nav-link" href="#about">About</a>
-          <a class="nav-link" href="#projects">Projects</a>
-          <a class="nav-link" href="#research">Research</a>
-          <a class="nav-link" href="#experience">Experience</a>
-          <a class="nav-link" href="#skills">Skills</a>
-          <a class="nav-link" href="#contact">Contact</a>
+          <a class="nav-link" href="#about" data-nav>About</a>
+          <a class="nav-link" href="#projects" data-nav>Projects</a>
+          <a class="nav-link" href="#research" data-nav>Research</a>
+          <a class="nav-link" href="#experience" data-nav>Experience</a>
+          <a class="nav-link" href="#skills" data-nav>Skills</a>
+          <a class="nav-link" href="#contact" data-nav>Contact</a>
+
           <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
             <span class="theme-icon" aria-hidden="true">◐</span>
           </button>
@@ -46,17 +48,18 @@
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" aria-label="Intro">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">EdTech builder • CS Instructor • Early-career researcher</p>
+          <p class="eyebrow">CS Instructor • Full-stack Developer • Early-career Researcher</p>
+
           <h1 class="headline">
-            Building practical learning systems — and studying how policy and governance shape responsible AI adoption.
+            Building learning systems that work in real classrooms — with privacy, governance, and human experience in mind.
           </h1>
+
           <p class="subhead">
-            I work at the intersection of <strong>education technology</strong>, <strong>adaptive learning</strong>, and
-            <strong>responsible AI</strong>. I care about impact in real classrooms and clarity in how systems are designed,
-            measured, and governed.
+            I’m Yogesh Luitel. I teach Grade 11–12 Computer Science, build production platforms for learners,
+            and explore the intersection of <strong>EduTech</strong> and <strong>cyber/AI policy</strong>—especially in low-resource contexts.
           </p>
 
           <div class="hero-actions">
@@ -67,54 +70,65 @@
 
           <div class="hero-meta">
             <div class="meta-card">
-              <div class="meta-title">Current role</div>
+              <div class="meta-title">Current</div>
               <div class="meta-value">Computer Science Instructor (Grade 11–12)</div>
-              <div class="meta-note">Kathmandu, Nepal</div>
+              <div class="meta-note">Xavier International College • Kathmandu, Nepal</div>
             </div>
 
             <div class="meta-card">
-              <div class="meta-title">Built & shipped</div>
+              <div class="meta-title">Shipped</div>
               <div class="meta-value">NEB Gyan (10,000+ users)</div>
-              <div class="meta-note">Full-stack platform + analytics</div>
+              <div class="meta-note">Full-stack platform • analytics • scale</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-title">Research</div>
+              <div class="meta-value">Undergrad Research Assistant</div>
+              <div class="meta-note">Adaptive learning + learning analytics</div>
+            </div>
+
+            <div class="meta-card">
+              <div class="meta-title">Education</div>
+              <div class="meta-value">B.IT (Honors), CGPA 3.76/4.0</div>
+              <div class="meta-note">Phoenix College (aff. Lincoln University College)</div>
             </div>
           </div>
         </div>
 
         <aside class="hero-panel" aria-label="Quick profile">
           <div class="panel-card">
-            <div class="panel-title">Focus areas</div>
-            <ul class="chip-list">
-              <li class="chip">Technology policy</li>
-              <li class="chip">Cybersecurity policy</li>
-              <li class="chip">Responsible AI</li>
-              <li class="chip">Human–AI interaction</li>
-              <li class="chip">EdTech systems</li>
-              <li class="chip">ICT4D</li>
+            <div class="panel-title">What I build</div>
+            <ul class="chip-list" aria-label="Focus areas">
+              <li class="chip">Learning platforms</li>
+              <li class="chip">Analytics & feedback loops</li>
+              <li class="chip">Adaptive tutoring prototypes</li>
+              <li class="chip">Privacy-minded system design</li>
+              <li class="chip">Policy-aware deployment</li>
             </ul>
           </div>
 
           <div class="panel-card">
-            <div class="panel-title">Links</div>
-            <div class="link-list">
+            <div class="panel-title">What I care about</div>
+            <p class="muted small">
+              Making systems <strong>usable</strong>, <strong>measurable</strong>, and <strong>governable</strong>—so they can earn trust
+              from teachers, institutions, and learners.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="link-list" aria-label="Links">
               <a class="link-row" href="mailto:yogeshluitel9@gmail.com">
                 <span>Email</span><span class="muted">yogeshluitel9@gmail.com</span>
               </a>
+              <button class="link-row link-btn" type="button" data-copy="yogeshluitel9@gmail.com" aria-label="Copy email">
+                <span>Copy email</span><span class="muted">to clipboard</span>
+              </button>
               <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
                 <span>GitHub</span><span class="muted">yogesh0224</span>
               </a>
-              <!-- Replace with your real LinkedIn -->
-              <a class="link-row" href="#" target="_blank" rel="noopener">
-                <span>LinkedIn</span><span class="muted">add link</span>
-              </a>
             </div>
-          </div>
 
-          <div class="panel-card subtle">
-            <div class="panel-title">What I’m known for</div>
-            <p class="muted">
-              Shipping real systems, explaining design tradeoffs clearly, and caring about how technology affects learners,
-              institutions, and policy.
-            </p>
+            <p class="note muted small" id="toast" role="status" aria-live="polite"></p>
           </div>
         </aside>
       </div>
@@ -126,44 +140,50 @@
         <div class="section-head">
           <h2>About</h2>
           <p class="section-subtitle">
-            A practical builder with a research mindset — focused on learning systems and the socio-technical questions around them.
+            A practical builder with a research mindset — focused on education systems, security, and responsible AI adoption.
           </p>
         </div>
 
         <div class="grid two">
-          <div class="card">
+          <article class="card reveal">
             <h3 class="card-title">Short bio</h3>
             <p>
-              I’m a Bachelor of Information Technology (Honors) graduate and a Computer Science instructor.
-              I’ve worked as an undergraduate research assistant, exploring AI-driven adaptive learning systems
-              and student performance analytics.
+              I’m a computer science instructor and full-stack developer working on tools that help learners practice, progress, and stay motivated.
+              Alongside teaching, I’ve supported research on <strong>AI-driven adaptive learning</strong> and <strong>student performance analytics</strong>,
+              and I’m actively drafting work on how policy, governance, and digital literacy shape responsible adoption.
             </p>
             <p class="muted">
-              My long-term direction is to contribute to EdTech and technology policy research—especially in contexts where resources,
-              infrastructure, and governance constraints matter.
+              My goal is to contribute to research and real-world systems where engineering decisions are aligned with privacy, security,
+              and public-interest outcomes.
             </p>
-          </div>
+          </article>
 
-          <div class="card">
-            <h3 class="card-title">Education</h3>
+          <article class="card reveal">
+            <h3 class="card-title">Research interests</h3>
             <ul class="list">
               <li>
-                <strong>Bachelor of Information Technology (Honors)</strong>
-                <div class="muted">Phoenix College of Management & IT Studies (affiliated to Lincoln University College, Malaysia)</div>
-                <div class="muted">CGPA: 3.76/4.0</div>
+                <strong>EduTech & learning engineering:</strong> adaptive learning, learning analytics, feedback systems, mastery modeling,
+                human-centered learning experiences.
               </li>
-              <li class="muted small">
-                Relevant coursework: Data Structures & Algorithms, Compiler Design, DBMS, AI, Software Engineering, Cyber Technology & Policy Analysis
+              <li>
+                <strong>Cyber policy for education systems:</strong> student data privacy, institutional security posture, safe-by-design platforms,
+                digital literacy barriers.
+              </li>
+              <li>
+                <strong>AI governance & responsible AI:</strong> accountability, data ethics, policy-aligned deployment,
+                governance for low-resource institutions.
+              </li>
+              <li>
+                <strong>Socio-technical systems in developing contexts:</strong> ICT4D, digital transformation, equitable adoption under real constraints.
               </li>
             </ul>
-          </div>
+          </article>
         </div>
 
-        <div class="callout">
-          <div class="callout-title">What this portfolio emphasizes</div>
+        <div class="callout reveal">
+          <div class="callout-title">What you’ll see here</div>
           <p class="muted">
-            Clear projects, credible scope, and research direction — not hype.
-            You’ll see what I built, what I’m exploring, and how I think.
+            Real systems I’ve shipped, research direction I’m pursuing, and clear explanations of tradeoffs — without hype.
           </p>
         </div>
       </div>
@@ -175,90 +195,97 @@
         <div class="section-head">
           <h2>Selected projects</h2>
           <p class="section-subtitle">
-            Three projects that represent my current direction: EdTech at scale, adaptive tutoring prototypes, and interactive knowledge systems.
+            Three projects that reflect my current direction: EdTech at scale, adaptive tutoring prototypes, and interactive knowledge systems.
           </p>
         </div>
 
         <div class="project-grid">
           <!-- Project 1 -->
-          <article class="project card">
+          <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">NEB Gyan — Educational Platform</h3>
               <p class="project-badge">10,000+ users • Full-stack</p>
             </div>
+
             <p class="muted">
-              A free learning platform with +2 notes, entrance mock tests, analytics, and progress tracking.
-              Built with scalable backend architecture and REST APIs.
+              Built a learning platform for +2 students and entrance prep: notes, mock tests, and analytics that surface weak areas
+              and track progress over time.
             </p>
 
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Django</span>
-              <span class="tag">DRF</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">Redis</span>
-              <span class="tag">HTML/CSS/JS</span>
+            <div class="mini-case">
+              <div><span class="mini-label">Problem:</span> fragmented prep resources + no progress visibility.</div>
+              <div><span class="mini-label">Solution:</span> structured content + tests + analytics pipeline.</div>
+              <div><span class="mini-label">Outcome:</span> scaled to 10,000+ active users with reliable performance.</div>
+            </div>
+
+            <div class="tags" aria-label="Tech stack">
+              <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span>
+              <span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">HTML/CSS/JS</span>
             </div>
 
             <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-neb">Read details</button>
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live link (add)</a>
+              <button class="btn btn-ghost" data-modal="m-neb">Mini case study</button>
+              <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
             </div>
           </article>
 
           <!-- Project 2 -->
-          <article class="project card">
+          <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">Adaptive AI Tutor (Prototype)</h3>
-              <p class="project-badge">Research prototype</p>
+              <p class="project-badge">Learning science • ML</p>
             </div>
+
             <p class="muted">
-              A tutoring prototype exploring mastery prediction and learning difficulty classification using knowledge tracing and contextual decision methods.
+              A research prototype that models mastery and adapts practice sequencing—exploring knowledge tracing,
+              contextual bandits, and code-aware representations.
             </p>
 
-            <div class="tags">
-              <span class="tag">Deep Knowledge Tracing</span>
-              <span class="tag">LSTM</span>
-              <span class="tag">Contextual bandits</span>
-              <span class="tag">TensorFlow</span>
-              <span class="tag">Python</span>
+            <div class="mini-case">
+              <div><span class="mini-label">Problem:</span> practice that doesn’t match a learner’s current mastery.</div>
+              <div><span class="mini-label">Solution:</span> mastery prediction + difficulty classification.</div>
+              <div><span class="mini-label">Outcome:</span> baseline models + evaluation workflow for iterative improvement.</div>
+            </div>
+
+            <div class="tags" aria-label="Tech stack">
+              <span class="tag">Python</span><span class="tag">LSTM (DKT)</span><span class="tag">Contextual bandits</span><span class="tag">CodeBERT</span>
             </div>
 
             <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-tutor">Read details</button>
+              <button class="btn btn-ghost" data-modal="m-tutor">Mini case study</button>
               <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
           <!-- Project 3 -->
-          <article class="project card">
+          <article class="project card reveal">
             <div class="project-top">
               <h3 class="project-title">Knowledge Constellation — 3D Knowledge Graph</h3>
-              <p class="project-badge">Visualization + learning analytics</p>
+              <p class="project-badge">Visualization • Analytics</p>
             </div>
+
             <p class="muted">
-              A 3D knowledge graph visualization for exploring concepts and relationships, paired with analytics for learner pathways and clustering.
+              Interactive 3D knowledge graph to explore concepts and relationships, paired with learner pathway analytics and concept clustering.
             </p>
 
-            <div class="tags">
-              <span class="tag">Three.js</span>
-              <span class="tag">WebGL</span>
-              <span class="tag">Django</span>
-              <span class="tag">Analytics</span>
+            <div class="mini-case">
+              <div><span class="mini-label">Problem:</span> concepts are taught linearly; understanding is connected.</div>
+              <div><span class="mini-label">Solution:</span> 3D graph exploration + pathway analytics backend.</div>
+              <div><span class="mini-label">Outcome:</span> a prototype for discovery-based learning and curriculum mapping.</div>
+            </div>
+
+            <div class="tags" aria-label="Tech stack">
+              <span class="tag">Three.js</span><span class="tag">Django</span><span class="tag">Analytics</span><span class="tag">Graph modeling</span>
             </div>
 
             <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-kg">Read details</button>
-              <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Repo (add)</a>
+              <button class="btn btn-ghost" data-modal="m-kg">Mini case study</button>
+              <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
             </div>
           </article>
         </div>
 
-        <div class="note">
-          <p class="muted small">
-            Tip: Replace the “add” links with your real live URL / repo URLs. Don’t leave “#” in production.
-          </p>
-        </div>
+        <p class="muted small note reveal">If you prefer, I can share short demos or write-ups of private projects by email.</p>
       </div>
     </section>
 
@@ -268,66 +295,35 @@
         <div class="section-head">
           <h2>Research</h2>
           <p class="section-subtitle">
-            My work centers on how learning systems are designed, evaluated, and governed—especially in developing contexts.
+            I focus on work where engineering meets governance—especially for education systems and developing contexts.
           </p>
         </div>
 
         <div class="grid two">
-          <div class="card">
-            <h3 class="card-title">Research interests</h3>
+          <article class="card reveal">
+            <h3 class="card-title">Current focus</h3>
             <ul class="list compact">
-              <li><strong>AI governance</strong> and responsible adoption in public/education systems</li>
-              <li><strong>Cybersecurity & cyber policy</strong> (literacy, governance gaps, digital ecosystems)</li>
-              <li><strong>Socio-technical systems</strong>: real-world constraints, institutional readiness, data ethics</li>
-              <li><strong>Human–AI interaction</strong> in learning: trust, feedback, teacher-in-the-loop design</li>
-              <li><strong>EdTech evaluation</strong>: measurable learning outcomes, fairness, and practical deployment</li>
+              <li><strong>Privacy-preserving educational data use:</strong> analytics that respect consent, minimization, and security.</li>
+              <li><strong>AI governance for low-resource institutions:</strong> practical accountability and deployment constraints.</li>
+              <li><strong>Cyber policy & digital literacy:</strong> how institutional posture and user behavior shape safety outcomes.</li>
+              <li><strong>Human–AI interaction in learning:</strong> useful feedback, trust calibration, and teacher-in-the-loop design.</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="card">
-            <h3 class="card-title">Working papers / research in progress</h3>
-            <div class="stack">
-              <div class="paper">
-                <div class="paper-title">AI-Enhanced Educational Governance in Developing Nations: A Case Study of Nepal</div>
-                <div class="paper-meta">Status: Drafting</div>
-              </div>
-              <div class="paper">
-                <div class="paper-title">Cyber Policy Gaps and Digital Literacy Barriers in Nepal’s Digital Ecosystem</div>
-                <div class="paper-meta">Status: Concept stage</div>
-              </div>
-              <div class="paper">
-                <div class="paper-title">Responsible AI Adoption in Low-Resource Academic Institutions</div>
-                <div class="paper-meta">Status: Data collection stage</div>
-              </div>
-            </div>
+          <article class="card reveal">
+            <h3 class="card-title">Working papers & drafts</h3>
+            <ul class="list compact">
+              <li><strong>AI-Enhanced Educational Governance in Developing Nations:</strong> a case study of Nepal (drafting)</li>
+              <li><strong>Cyber Policy Gaps and Digital Literacy Barriers</strong> in Nepal’s digital ecosystem (concept stage)</li>
+              <li><strong>Responsible AI Adoption</strong> in low-resource academic institutions (data collection stage)</li>
+            </ul>
+
+            <div class="divider"></div>
             <p class="muted small">
-              I’m prioritizing careful framing and evidence before public release.
+              I’m happy to share drafts and outlines by email if they align with your interests.
             </p>
-          </div>
+          </article>
         </div>
-
-        <div class="card">
-          <h3 class="card-title">Undergraduate research experience</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-when">2023–2024</div>
-              <div class="timeline-what">
-                <div class="timeline-title">Undergraduate Research Assistant — Phoenix College of Management (Kathmandu)</div>
-                <ul class="list compact muted">
-                  <li>Studied AI-driven adaptive learning systems for Nepal’s secondary-level education</li>
-                  <li>Developed ML-based student performance analysis to identify conceptual weaknesses</li>
-                  <li>Worked with mixed-method evaluation (qual + quant)</li>
-                  <li>Supported research design, dataset preparation, and interpretation</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="muted small">
-          (All research points above come directly from your CV.) 
-          :contentReference[oaicite:3]{index=3}
-        </p>
       </div>
     </section>
 
@@ -336,36 +332,39 @@
       <div class="container">
         <div class="section-head">
           <h2>Experience</h2>
-          <p class="section-subtitle">Teaching and building systems — with a strong focus on structure, clarity, and student outcomes.</p>
+          <p class="section-subtitle">
+            Teaching + research + building: three lenses that keep my work grounded in real constraints.
+          </p>
         </div>
 
-        <div class="grid two">
-          <div class="card">
-            <h3 class="card-title">Teaching</h3>
-            <div class="timeline">
-              <div class="timeline-item">
-                <div class="timeline-when">2024–Present</div>
-                <div class="timeline-what">
-                  <div class="timeline-title">Computer Science Instructor — Xavier International College</div>
-                  <ul class="list compact muted">
-                    <li>Teach Grade 11–12 CS: Python, DBMS, Software Development</li>
-                    <li>Run labs, supervise projects, and mentor students</li>
-                    <li>Create structured materials and analytics-based learning workflows</li>
-                  </ul>
-                </div>
+        <div class="timeline" aria-label="Experience timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-when">2024–Present</div>
+            <div>
+              <div class="timeline-title">Computer Science Instructor • Xavier International College</div>
+              <p class="muted small">
+                Teach Grade 11–12 Computer Science (Python, DBMS, software development), lead labs, supervise projects,
+                and design structured digital materials with analytics-based workflows.
+              </p>
+              <div class="pill-row" aria-label="Topics">
+                <span class="pill">Python</span><span class="pill">DBMS</span><span class="pill">Project mentoring</span><span class="pill">Learning workflows</span>
               </div>
             </div>
-            <p class="muted small">:contentReference[oaicite:4]{index=4}</p>
-          </div>
+          </article>
 
-          <div class="card">
-            <h3 class="card-title">What I bring to teams</h3>
-            <ul class="list">
-              <li><strong>Real deployment mindset:</strong> scaling, reliability, and usable workflows (not just demos)</li>
-              <li><strong>Research-aligned engineering:</strong> measurable outcomes, careful evaluation, data ethics</li>
-              <li><strong>Communication:</strong> clear writeups, structured thinking, and teaching experience</li>
-            </ul>
-          </div>
+          <article class="timeline-item reveal">
+            <div class="timeline-when">2023–2024</div>
+            <div>
+              <div class="timeline-title">Undergraduate Research Assistant • Phoenix College of Management</div>
+              <p class="muted small">
+                Studied AI-driven adaptive learning systems for secondary-level education and built ML-based student performance analysis to identify
+                conceptual weaknesses. Supported research design, dataset preparation, and mixed-method evaluation.
+              </p>
+              <div class="pill-row" aria-label="Methods">
+                <span class="pill">Learning analytics</span><span class="pill">Mixed methods</span><span class="pill">ML evaluation</span><span class="pill">Adaptive learning</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -375,60 +374,41 @@
       <div class="container">
         <div class="section-head">
           <h2>Skills</h2>
-          <p class="section-subtitle">A focused stack for building data-informed learning systems.</p>
+          <p class="section-subtitle">
+            Solid engineering fundamentals, plus applied ML and deployment experience—shaped by real users and real constraints.
+          </p>
         </div>
 
         <div class="grid three">
-          <div class="card">
-            <h3 class="card-title">Programming</h3>
-            <div class="pill-row">
-              <span class="pill">Python</span>
-              <span class="pill">JavaScript</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Frameworks</h3>
-            <div class="pill-row">
-              <span class="pill">Django</span>
-              <span class="pill">DRF</span>
-              <span class="pill">TensorFlow</span>
-              <span class="pill">Scikit-Learn</span>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">Systems</h3>
-            <div class="pill-row">
-              <span class="pill">MySQL</span>
-              <span class="pill">PostgreSQL</span>
-              <span class="pill">Docker</span>
-              <span class="pill">Linux</span>
-              <span class="pill">REST APIs</span>
-              <span class="pill">Deployment</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="grid two">
-          <div class="card">
-            <h3 class="card-title">Certifications</h3>
-            <ul class="list compact muted">
-              <li>Python with Django — IT Training Nepal (2023)</li>
-              <li>Machine Learning with Python — Code Himalaya (2023)</li>
+          <article class="card reveal">
+            <h3 class="card-title">Engineering</h3>
+            <ul class="list compact">
+              <li>Python, JavaScript</li>
+              <li>Django, Django REST Framework</li>
+              <li>REST APIs, authentication, caching</li>
+              <li>Git, Docker, Linux</li>
             </ul>
-            <p class="muted small">:contentReference[oaicite:5]{index=5}</p>
-          </div>
+          </article>
 
-          <div class="card">
-            <h3 class="card-title">Academic strengths</h3>
-            <ul class="list compact muted">
-              <li>Strong research motivation in AI governance and digital policy</li>
-              <li>Full-stack engineering experience with real users</li>
-              <li>Teaching experience with STEM curriculum</li>
+          <article class="card reveal">
+            <h3 class="card-title">Data & ML</h3>
+            <ul class="list compact">
+              <li>Learning analytics, evaluation</li>
+              <li>TensorFlow, Scikit-Learn</li>
+              <li>Modeling: DKT, bandits (prototype)</li>
+              <li>Data analysis pipelines</li>
             </ul>
-            <p class="muted small">:contentReference[oaicite:6]{index=6}</p>
-          </div>
+          </article>
+
+          <article class="card reveal">
+            <h3 class="card-title">Systems & policy lens</h3>
+            <ul class="list compact">
+              <li>Student data privacy, safe-by-design thinking</li>
+              <li>AI governance & accountability</li>
+              <li>ICT4D, socio-technical constraints</li>
+              <li>Human-centered product decisions</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -439,12 +419,12 @@
         <div class="section-head">
           <h2>Contact</h2>
           <p class="section-subtitle">
-            If you’d like to discuss research ideas, collaboration, or EdTech systems, feel free to reach out.
+            If you’d like to discuss research ideas, collaboration, or learning systems, feel free to reach out.
           </p>
         </div>
 
         <div class="grid two">
-          <div class="card">
+          <article class="card reveal">
             <h3 class="card-title">Email</h3>
             <p class="muted">Fastest way to reach me:</p>
             <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com">yogeshluitel9@gmail.com</a>
@@ -456,27 +436,24 @@
               <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
                 <span>GitHub</span><span class="muted">Projects & code</span>
               </a>
-              <!-- Replace with real LinkedIn -->
-              <a class="link-row" href="#" target="_blank" rel="noopener">
-                <span>LinkedIn</span><span class="muted">Add your profile</span>
-              </a>
             </div>
-          </div>
+          </article>
 
-          <div class="card">
-            <h3 class="card-title">A short note</h3>
+          <article class="card reveal">
+            <h3 class="card-title">A note to visitors</h3>
             <p class="muted">
-              I’m interested in projects that combine thoughtful system design with real-world constraints —
-              especially around learning systems, governance, and responsible AI.
+              I’m especially interested in work that combines careful system design with real-world constraints—
+              where learning outcomes, privacy, and governance matter as much as the model.
             </p>
 
             <div class="divider"></div>
 
             <p class="muted small">
-              If you want, I can also refactor this into a multi-page structure later
-              (Home / Projects / Research / Contact) — but this single-page version is ideal for first impression.
+              Prefer reading? Open my CV for a concise overview.
             </p>
-          </div>
+
+            <a class="btn btn-ghost" href="Academic_CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+          </article>
         </div>
 
         <footer class="footer">
@@ -486,48 +463,122 @@
     </section>
   </main>
 
-  <!-- MODALS -->
-  <dialog class="modal" id="m-neb" aria-label="NEB Gyan details">
+  <!-- MODALS / MINI CASE STUDIES -->
+  <dialog class="modal" id="m-neb" aria-label="NEB Gyan mini case study">
     <div class="modal-inner">
       <div class="modal-head">
-        <h3>NEB Gyan — Educational Platform</h3>
+        <h3>NEB Gyan — Mini case study</h3>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </div>
+
       <div class="modal-body">
-        <p>
-          NEB Gyan is a free learning platform designed for +2 students and entrance prep workflows.
-          I built the backend architecture, REST APIs, authentication, and database optimizations, with analytics features for learner progress.
-        </p>
-        <ul class="list compact">
-          <li><strong>Impact:</strong> scaled to 10,000+ active users</li>
-          <li><strong>Features:</strong> notes, mock tests, progress tracking, weak-area identification</li>
-          <li><strong>Stack:</strong> Django + DRF, MySQL, Redis, HTML/CSS/JS</li>
-        </ul>
-        <p class="muted small">Based on your CV description. :contentReference[oaicite:7]{index=7}</p>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-kicker">Context</div>
+            <p>
+              NEB Gyan is a free learning platform for +2 students and entrance prep. I founded and built it end-to-end, focusing on
+              reliability, performance, and a simple learning workflow.
+            </p>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Problem</div>
+            <ul class="list compact">
+              <li>Prep materials were scattered across sources and formats.</li>
+              <li>Students lacked visibility into progress and weak areas.</li>
+              <li>Systems often failed under load during peak exam periods.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">What I built</div>
+            <ul class="list compact">
+              <li>Structured content (notes) + timed mock tests + progress dashboards.</li>
+              <li>Weak-area identification (topic-level performance signals).</li>
+              <li>REST APIs, auth, caching, and database optimization for scale.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Architecture</div>
+            <ul class="list compact">
+              <li><strong>Django + DRF</strong> backend with modular apps and clear API boundaries.</li>
+              <li><strong>MySQL</strong> for core data; <strong>Redis</strong> for caching/session performance.</li>
+              <li>Analytics events modeled for progress tracking and reporting.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Outcome</div>
+            <ul class="list compact">
+              <li><strong>10,000+ active users</strong> with stable performance at peak usage.</li>
+              <li>Clear learning loop: practice → feedback → next actions.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Next iteration</div>
+            <ul class="list compact">
+              <li>Privacy-first analytics documentation (data minimization + retention policies).</li>
+              <li>Teacher dashboards and cohort-level insights.</li>
+              <li>Experimentation framework for measuring learning impact.</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="modal-actions">
-        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Live link (add)</a>
+        <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
         <button class="btn btn-ghost" data-close>Close</button>
       </div>
     </div>
   </dialog>
 
-  <dialog class="modal" id="m-tutor" aria-label="Adaptive AI Tutor details">
+  <dialog class="modal" id="m-tutor" aria-label="Adaptive AI Tutor mini case study">
     <div class="modal-inner">
       <div class="modal-head">
-        <h3>Adaptive AI Tutor (Prototype)</h3>
+        <h3>Adaptive AI Tutor — Mini case study</h3>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </div>
+
       <div class="modal-body">
-        <p>
-          This prototype explores personalized learning with cognitive modeling techniques, including mastery prediction and adaptive decision policies.
-        </p>
-        <ul class="list compact">
-          <li><strong>Methods:</strong> Deep Knowledge Tracing (LSTM), contextual bandits, CodeBERT exploration</li>
-          <li><strong>Goal:</strong> predict mastery and classify learning difficulty to adapt practice sequences</li>
-        </ul>
-        <p class="muted small">Aligned with your CV project summary. :contentReference[oaicite:8]{index=8}</p>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-kicker">Context</div>
+            <p>
+              A research prototype exploring how to adapt practice to a learner’s mastery—especially for programming education.
+            </p>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Approach</div>
+            <ul class="list compact">
+              <li><strong>Deep Knowledge Tracing (LSTM)</strong> for mastery prediction over sequences.</li>
+              <li><strong>Contextual bandits</strong> for adaptive practice selection policies.</li>
+              <li><strong>CodeBERT exploration</strong> for code-aware representations.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">What it demonstrates</div>
+            <ul class="list compact">
+              <li>End-to-end workflow: dataset prep → model training → evaluation → iteration.</li>
+              <li>Clear metrics for improvement (accuracy, calibration, error analysis by topic).</li>
+              <li>How tutoring logic can be constrained for safety + teacher oversight.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Next iteration</div>
+            <ul class="list compact">
+              <li>Human-in-the-loop feedback: teachers can review model recommendations.</li>
+              <li>Privacy-aware logging (minimal, auditable event data).</li>
+              <li>Better evaluation with classroom-like tasks and more robust baselines.</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="modal-actions">
         <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">Open GitHub</a>
         <button class="btn btn-ghost" data-close>Close</button>
@@ -535,24 +586,52 @@
     </div>
   </dialog>
 
-  <dialog class="modal" id="m-kg" aria-label="Knowledge Constellation details">
+  <dialog class="modal" id="m-kg" aria-label="Knowledge Constellation mini case study">
     <div class="modal-inner">
       <div class="modal-head">
-        <h3>Knowledge Constellation — 3D Knowledge Graph</h3>
+        <h3>Knowledge Constellation — Mini case study</h3>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </div>
+
       <div class="modal-body">
-        <p>
-          A 3D knowledge graph visualization to explore concepts and their relationships interactively, with analytics for learner pathways and concept clustering.
-        </p>
-        <ul class="list compact">
-          <li><strong>Frontend:</strong> Three.js visualization</li>
-          <li><strong>Backend:</strong> Django integration for analytics</li>
-        </ul>
-        <p class="muted small">Based on your CV project description. :contentReference[oaicite:9]{index=9}</p>
+        <div class="case-grid">
+          <div class="case-block">
+            <div class="case-kicker">Context</div>
+            <p>
+              An interactive 3D knowledge graph to explore educational concepts and relationships, designed for discovery and curriculum mapping.
+            </p>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Problem</div>
+            <ul class="list compact">
+              <li>Concept dependencies are hard to see in linear notes and syllabi.</li>
+              <li>Teachers need a way to map pathways and identify bottlenecks.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">What I built</div>
+            <ul class="list compact">
+              <li><strong>Three.js</strong> visualization for interactive graph exploration.</li>
+              <li><strong>Django</strong> backend for learner pathway analytics + concept clustering.</li>
+              <li>Design aimed at clarity: zoom, focus, search, and relationship cues.</li>
+            </ul>
+          </div>
+
+          <div class="case-block">
+            <div class="case-kicker">Next iteration</div>
+            <ul class="list compact">
+              <li>Usability testing with teachers and students (task-based evaluation).</li>
+              <li>Policy-aware data model for analytics (privacy by design).</li>
+              <li>Export tools for curriculum planning and reporting.</li>
+            </ul>
+          </div>
+        </div>
       </div>
+
       <div class="modal-actions">
-        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Repo (add)</a>
+        <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
         <button class="btn btn-ghost" data-close>Close</button>
       </div>
     </div>
