@@ -1,18 +1,16 @@
-// script.js
 (() => {
   const root = document.documentElement;
 
-  // Theme (persisted)
+  // ✅ Default theme: DARK
+  // Only use stored preference if user has toggled before.
   const stored = localStorage.getItem("theme");
   if (stored === "light" || stored === "dark") {
     root.setAttribute("data-theme", stored);
   } else {
-    const prefersLight =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches;
-    root.setAttribute("data-theme", prefersLight ? "light" : "dark");
+    root.setAttribute("data-theme", "dark");
   }
 
+  // Toggle theme + persist
   document.getElementById("themeToggle")?.addEventListener("click", () => {
     const current = root.getAttribute("data-theme") || "dark";
     const next = current === "dark" ? "light" : "dark";
@@ -23,7 +21,6 @@
   // Mobile nav
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
-
   const closeMenu = () => {
     navMenu?.classList.remove("open");
     navToggle?.setAttribute("aria-expanded", "false");
@@ -43,7 +40,7 @@
 
   navMenu?.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
 
-  // Scroll spy (main nav)
+  // Scroll spy
   const navLinks = Array.from(document.querySelectorAll("[data-nav]"));
   const sections = navLinks
     .map((a) => document.querySelector(a.getAttribute("href")))
@@ -52,25 +49,34 @@
   if ("IntersectionObserver" in window && sections.length) {
     const io = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const id = "#" + entry.target.id;
-          navLinks.forEach((a) => {
-            a.classList.toggle("is-active", a.getAttribute("href") === id);
-          });
+        const topMost = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (!topMost) return;
+        const id = "#" + topMost.target.id;
+
+        navLinks.forEach((a) => {
+          a.classList.toggle("is-active", a.getAttribute("href") === id);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
+      { rootMargin: "-30% 0px -60% 0px", threshold: [0.06, 0.12, 0.2, 0.35] }
     );
+
     sections.forEach((s) => io.observe(s));
   }
 
-  // Reveal animation
+  // Reveal (stagger)
   const prefersReduced =
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const revealEls = Array.from(document.querySelectorAll(".reveal"));
+  revealEls.forEach((el, i) => {
+    const delay = Math.min(i * 70, 450);
+    el.style.setProperty("--delay", `${delay}ms`);
+  });
+
   if (!prefersReduced && "IntersectionObserver" in window && revealEls.length) {
     const r = new IntersectionObserver(
       (entries) => {
@@ -81,7 +87,7 @@
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.14 }
     );
     revealEls.forEach((el) => r.observe(el));
   } else {
@@ -97,8 +103,12 @@
   const showToast = (msg) => {
     if (!toast) return;
     toast.textContent = msg;
+    toast.style.opacity = "1";
     clearTimeout(showToast._t);
-    showToast._t = setTimeout(() => (toast.textContent = ""), 2200);
+    showToast._t = setTimeout(() => {
+      toast.textContent = "";
+      toast.style.opacity = "0.95";
+    }, 2200);
   };
 
   document.querySelectorAll("[data-copy]").forEach((btn) => {
@@ -122,7 +132,7 @@
     });
   });
 
-  // Modals + Case study navigation
+  // Modals
   const openModal = (dlg) => {
     if (dlg && typeof dlg.showModal === "function") dlg.showModal();
   };
@@ -132,8 +142,6 @@
       const id = btn.getAttribute("data-modal");
       const dlg = id ? document.getElementById(id) : null;
       openModal(dlg);
-      // reset nav highlight to first
-      if (dlg) setupCaseNav(dlg);
     });
   });
 
@@ -142,7 +150,6 @@
       b.addEventListener("click", () => dlg.close());
     });
 
-    // Click outside dialog to close
     dlg.addEventListener("click", (e) => {
       const rect = dlg.getBoundingClientRect();
       const inDialog =
@@ -153,69 +160,4 @@
       if (!inDialog) dlg.close();
     });
   });
-
-  function setupCaseNav(dlg) {
-    const body = dlg.querySelector("[data-case-body]");
-    const navButtons = Array.from(dlg.querySelectorAll("[data-case-nav]"));
-    if (!body || !navButtons.length) return;
-
-    const targets = navButtons
-      .map((b) => dlg.querySelector("#" + b.getAttribute("data-case-nav")))
-      .filter(Boolean);
-
-    // click to scroll within modal body
-    navButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const id = btn.getAttribute("data-case-nav");
-        const target = id ? dlg.querySelector("#" + id) : null;
-        if (!target) return;
-
-        body.scrollTo({
-          top: target.offsetTop - 8,
-          behavior: "smooth",
-        });
-      });
-    });
-
-    // observer to highlight current section (inside modal)
-    if (!("IntersectionObserver" in window)) return;
-
-    const clearActive = () => navButtons.forEach((b) => b.classList.remove("is-active"));
-    clearActive();
-    navButtons[0]?.classList.add("is-active");
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        // pick the most visible intersecting section
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visible) return;
-
-        const id = visible.target.id;
-        const btn = navButtons.find((b) => b.getAttribute("data-case-nav") === id);
-        if (!btn) return;
-
-        clearActive();
-        btn.classList.add("is-active");
-      },
-      {
-        root: body,
-        threshold: [0.2, 0.35, 0.5, 0.65],
-        rootMargin: "-10% 0px -70% 0px",
-      }
-    );
-
-    targets.forEach((t) => io.observe(t));
-
-    // cleanup when modal closes
-    dlg.addEventListener(
-      "close",
-      () => {
-        try { io.disconnect(); } catch {}
-      },
-      { once: true }
-    );
-  }
 })();

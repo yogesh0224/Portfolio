@@ -1,16 +1,16 @@
-<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light">
-  <title>Yogesh Luitel | Portfolio</title>
-  <meta name="description" content="Yogesh Luitel — CS instructor and full-stack developer building education platforms; exploring responsible AI in education and cybersecurity policy." />
+
+  <title>Yogesh Luitel | HCI • ML • Tech Policy</title>
+  <meta name="description" content="Yogesh Luitel — HCI + human-centered ML researcher exploring human–AI interaction, empirical evaluation, and technology policy." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -22,7 +22,10 @@
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Home">
         <span class="brand-mark" aria-hidden="true">YL</span>
-        <span class="brand-text">Yogesh Luitel</span>
+        <span class="brand-text">
+          <span class="brand-name">Yogesh Luitel</span>
+          <span class="brand-sub">HCI • ML • Tech Policy</span>
+        </span>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
@@ -36,8 +39,17 @@
           <a class="nav-link" href="#projects" data-nav>Projects</a>
           <a class="nav-link" href="#research" data-nav>Research</a>
           <a class="nav-link" href="#experience" data-nav>Experience</a>
-          <a class="nav-link" href="#skills" data-nav>Skills</a>
           <a class="nav-link" href="#contact" data-nav>Contact</a>
+
+          <a class="nav-cta" href="mailto:yogeshluitel9@gmail.com" aria-label="Email Yogesh">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4 7.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M4.5 8l7 5a1.5 1.5 0 0 0 1.8 0l7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            Email
+          </a>
 
           <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
             <span class="theme-icon" aria-hidden="true">◐</span>
@@ -50,67 +62,139 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" aria-label="Intro">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">CS Instructor • Full-stack Developer • Early-career Researcher</p>
+      <div class="container hero-wrap">
+        <div class="hero-left reveal">
+          <div class="pill">
+            <span class="dot"></span>
+            <span>Human–Computer Interaction • Machine Learning • Technology Policy</span>
+          </div>
 
-          <h1 class="headline">
-            Building learning systems that work in real classrooms — with privacy, governance, and human experience in mind.
+          <h1 class="hero-title">
+            I design <span class="grad">human-centered ML</span> systems —
+            decision support people can understand, challenge, and trust.
           </h1>
 
-          <p class="subhead">
-            I’m Yogesh Luitel. I teach Grade 11–12 Computer Science, build production platforms for learners,
-            and explore the intersection of <strong>EduTech</strong> and <strong>cyber/AI policy</strong>—especially in low-resource contexts.
+          <p class="hero-sub">
+            I’m Yogesh Luitel — a computer science instructor and early-career researcher.
+            <strong>Technology is never neutral. We research what it does to people.</strong>
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View projects</a>
-            <a class="btn btn-ghost" href="#research">Research focus</a>
-            <a class="btn btn-ghost" href="Academic_CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+            <a class="btn btn-primary" href="#projects">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M8 6h12M8 12h12M8 18h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M4.5 6h.01M4.5 12h.01M4.5 18h.01" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                </svg>
+              </span>
+              Projects
+            </a>
+            <a class="btn" href="#research">
+              Research focus
+            </a>
+            <a class="btn" href="Yogesh_Luitel_HCI_CV-1.pdf" target="_blank" rel="noopener">
+              Open CV
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  <path d="M14 3v5h5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                </svg>
+              </span>
+            </a>
           </div>
 
-          <div class="hero-meta">
-            <div class="meta-card">
-              <div class="meta-title">Current</div>
-              <div class="meta-value">Computer Science Instructor (Grade 11–12)</div>
-              <div class="meta-note">Xavier International College • Kathmandu, Nepal</div>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <div class="stat-k">Current</div>
+              <div class="stat-v">CS Instructor (Grades 11–12)</div>
+              <div class="stat-n">Xavier International College • Kathmandu</div>
             </div>
-
-            <div class="meta-card">
-              <div class="meta-title">Shipped</div>
-              <div class="meta-value">NEB Gyan (10,000+ users)</div>
-              <div class="meta-note">Full-stack platform • analytics • scale</div>
+            <div class="stat-card">
+              <div class="stat-k">Research</div>
+              <div class="stat-v">Human–AI interaction</div>
+              <div class="stat-n">Trust calibration • uncertainty • evaluation</div>
             </div>
-
-            <div class="meta-card">
-              <div class="meta-title">Research</div>
-              <div class="meta-value">Undergrad Research Assistant</div>
-              <div class="meta-note">Adaptive learning + learning analytics</div>
-            </div>
-
-            <div class="meta-card">
-              <div class="meta-title">Education</div>
-              <div class="meta-value">B.IT (Honors), CGPA 3.76/4.0</div>
-              <div class="meta-note">Phoenix College (aff. Lincoln University College)</div>
+            <div class="stat-card">
+              <div class="stat-k">Policy lens</div>
+              <div class="stat-v">Accountable deployment</div>
+              <div class="stat-n">Privacy • auditability • governance</div>
             </div>
           </div>
         </div>
 
-        <aside class="hero-panel" aria-label="Quick profile">
-          <div class="panel-card">
-            <div class="panel-title">Links</div>
-            <div class="link-list" aria-label="Links">
-              <a class="link-row" href="mailto:yogeshluitel9@gmail.com">
-                <span>Email</span><span class="muted">yogeshluitel9@gmail.com</span>
+        <aside class="hero-right reveal" aria-label="Quick links">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-title">Contact & links</div>
+              <div class="panel-sub">Fast ways to reach me</div>
+            </div>
+
+            <div class="link-cards">
+              <a class="link-card" href="mailto:yogeshluitel9@gmail.com">
+                <span class="lc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 7.5V17a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4.5 8l7 5a1.5 1.5 0 0 0 1.8 0l7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="lc-main">
+                  <span class="lc-title">Email</span>
+                  <span class="lc-meta">yogeshluitel9@gmail.com</span>
+                </span>
               </a>
-              <button class="link-row link-btn" type="button" data-copy="yogeshluitel9@gmail.com" aria-label="Copy email">
-                <span>Copy email</span><span class="muted">to clipboard</span>
+
+              <button class="link-card" type="button" data-copy="yogeshluitel9@gmail.com" aria-label="Copy email">
+                <span class="lc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M9 9h10v10H9V9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                <span class="lc-main">
+                  <span class="lc-title">Copy email</span>
+                  <span class="lc-meta">clipboard</span>
+                </span>
               </button>
-              <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
-                <span>GitHub</span><span class="muted">yogesh0224</span>
+
+              <a class="link-card" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
+                <span class="lc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2.7a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.9.7-3.6-1.2-3.6-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.3 3 2 .1-.7.4-1.2.7-1.5-2.3-.3-4.7-1.1-4.7-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.2 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7 1 .7 2v3c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.7Z"
+                          stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="lc-main">
+                  <span class="lc-title">GitHub</span>
+                  <span class="lc-meta">@yogesh0224</span>
+                </span>
+              </a>
+
+              <a class="link-card" href="https://www.linkedin.com/in/yogesh-luitel/" target="_blank" rel="noopener">
+                <span class="lc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M6.5 9.5H4.2V20h2.3V9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M5.35 7.2a1.35 1.35 0 1 0 0-2.7 1.35 1.35 0 0 0 0 2.7Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M10.2 9.5H8V20h2.2v-5.4c0-3 3.9-3.2 3.9 0V20h2.2v-6.2c0-5-5.3-4.8-6.1-2.3V9.5Z"
+                          stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span class="lc-main">
+                  <span class="lc-title">LinkedIn</span>
+                  <span class="lc-meta">connect</span>
+                </span>
               </a>
             </div>
-            <p class="toast muted small" id="toast" role="status" aria-live="polite"></p>
+
+            <p class="toast" id="toast" role="status" aria-live="polite"></p>
+          </div>
+
+          <div class="panel panel-mini">
+            <div class="mini-title">What I’m building</div>
+            <ul class="mini-list">
+              <li><strong>Interfaces</strong> that expose uncertainty + evidence</li>
+              <li><strong>Evaluation</strong> that reports failure modes & subgroups</li>
+              <li><strong>Governance</strong> that fits institutional constraints</li>
+            </ul>
           </div>
         </aside>
       </div>
@@ -119,34 +203,49 @@
     <!-- ABOUT -->
     <section class="section" id="about">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>About</h2>
-          <p class="section-subtitle">
-            A practical builder with a research mindset — focused on education systems, security, and responsible AI adoption.
+          <p>
+            I work at the boundary between research and practice: human–AI interaction, empirical ML evaluation, and technology policy for accountable deployment.
           </p>
         </div>
 
-        <div class="grid two">
+        <div class="two-col">
           <article class="card reveal">
-            <h3 class="card-title">Short bio</h3>
+            <h3>Short bio</h3>
             <p>
-              I’m a computer science instructor and full-stack developer working on tools that help learners practice, progress, and stay motivated.
-              Alongside teaching, I’ve supported research on <strong>AI-driven adaptive learning</strong> and <strong>student performance analytics</strong>,
-              and I’m actively drafting work on how policy, governance, and digital literacy shape responsible adoption.
+              I’m interested in how people make decisions with ML systems: what they see, what they trust, and what they can contest.
+              I focus on human-centered design patterns (uncertainty cues, explanations, feedback loops) paired with evaluation methods that go beyond accuracy.
             </p>
-            <p class="muted">
-              My goal is to contribute to research and real-world systems where engineering decisions are aligned with privacy, security,
-              and public-interest outcomes.
-            </p>
+
+            <div class="callout">
+              <div class="callout-title">My research hook</div>
+              <p class="muted">
+                Turning predictions into decision support people can calibrate:
+                <strong>evidence + uncertainty + accountability</strong> — not just scores.
+              </p>
+            </div>
           </article>
 
           <article class="card reveal">
-            <h3 class="card-title">Research interests</h3>
-            <ul class="list">
-              <li><strong>EduTech & learning engineering:</strong> adaptive learning, learning analytics, feedback systems, mastery modeling, human-centered learning experiences.</li>
-              <li><strong>Cyber policy for education systems:</strong> student data privacy, institutional security posture, safe-by-design platforms, digital literacy barriers.</li>
-              <li><strong>AI governance & responsible AI:</strong> accountability, data ethics, policy-aligned deployment, governance for low-resource institutions.</li>
-              <li><strong>Socio-technical systems in developing contexts:</strong> ICT4D, digital transformation, equitable adoption under real constraints.</li>
+            <h3>Research interests</h3>
+            <div class="chips">
+              <span class="chip">Human–AI interaction</span>
+              <span class="chip">Trust calibration</span>
+              <span class="chip">Uncertainty-aware UX</span>
+              <span class="chip">Explainability</span>
+              <span class="chip">Empirical evaluation</span>
+              <span class="chip">Robustness & failure modes</span>
+              <span class="chip">Transparency & governance</span>
+              <span class="chip">Privacy-by-design</span>
+            </div>
+
+            <div class="divider"></div>
+
+            <ul class="bullets">
+              <li><strong>HCI:</strong> interface patterns for sensemaking, feedback, and contestability.</li>
+              <li><strong>ML:</strong> evaluation, subgroup errors, robustness, interpretability.</li>
+              <li><strong>Policy:</strong> accountability constraints for real institutional deployments.</li>
             </ul>
           </article>
         </div>
@@ -156,135 +255,185 @@
     <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Selected projects</h2>
-          <p class="section-subtitle">
-            Three projects that reflect my current direction: EdTech at scale, adaptive tutoring prototypes, and interactive knowledge systems.
-          </p>
+          <p>Polished, research-aligned projects: interface design + evaluation + real-world constraints.</p>
         </div>
 
         <div class="project-grid">
-          <article class="project card reveal">
-            <div class="project-top">
-              <h3 class="project-title">NEB Gyan — Educational Platform</h3>
-              <p class="project-badge">10,000+ users • Full-stack</p>
+          <!-- Project 1 -->
+          <article class="project-card reveal" style="--accent: var(--a1);">
+            <div class="pc-cover">
+              <div class="pc-cover-left">
+                <div class="pc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3l9 4.5-9 4.5L3 7.5 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M21 7.5V16.5L12 21 3 16.5V7.5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M12 12v9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="pc-kicker">HCI • XAI</div>
+                  <h3 class="pc-title">Human-Centered ML for Programming Misconceptions</h3>
+                </div>
+              </div>
+              <span class="pc-badge">Decision Support</span>
             </div>
 
-            <p class="muted">
-              Built a learning platform for +2 students and entrance prep: notes, mock tests, and analytics that surface weak areas
-              and track progress over time.
-            </p>
+            <div class="pc-body">
+              <p class="pc-desc">
+                Teacher-facing decision support that surfaces likely misconceptions with uncertainty cues and explanations —
+                designed to reduce over-trust and preserve instructional agency.
+              </p>
 
-            <div class="mini-case">
-              <div><span class="mini-label">Problem:</span> fragmented prep resources + no progress visibility.</div>
-              <div><span class="mini-label">Solution:</span> structured content + tests + analytics loop.</div>
-              <div><span class="mini-label">Outcome:</span> scaled to 10,000+ active users with reliable performance.</div>
+              <ul class="pc-points">
+                <li><strong>Interface:</strong> uncertainty signaling + evidence views + easy override</li>
+                <li><strong>Evaluation:</strong> behavior metrics (time-to-decision, correction patterns)</li>
+                <li><strong>Goal:</strong> support sensemaking, not automated grading</li>
+              </ul>
+
+              <div class="pc-tags" aria-label="Tech stack">
+                <span class="tag">Python</span>
+                <span class="tag">Human-in-the-loop</span>
+                <span class="tag">Explainability</span>
+                <span class="tag">Evaluation</span>
+              </div>
             </div>
 
-            <div class="tags" aria-label="Tech stack">
-              <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span>
-              <span class="tag">MySQL</span><span class="tag">Redis</span><span class="tag">HTML/CSS/JS</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-neb">Open case study</button>
-              <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
-            </div>
-          </article>
-
-          <article class="project card reveal">
-            <div class="project-top">
-              <h3 class="project-title">Adaptive AI Tutor (Prototype)</h3>
-              <p class="project-badge">Learning science • ML</p>
-            </div>
-
-            <p class="muted">
-              A research prototype that models mastery and adapts practice sequencing—exploring knowledge tracing,
-              contextual bandits, and code-aware representations.
-            </p>
-
-            <div class="mini-case">
-              <div><span class="mini-label">Problem:</span> one-size-fits-all practice doesn’t match mastery.</div>
-              <div><span class="mini-label">Solution:</span> mastery prediction + adaptive selection policy.</div>
-              <div><span class="mini-label">Outcome:</span> baseline models + evaluation workflow for iteration.</div>
-            </div>
-
-            <div class="tags" aria-label="Tech stack">
-              <span class="tag">Python</span><span class="tag">LSTM (DKT)</span><span class="tag">Contextual bandits</span><span class="tag">CodeBERT</span>
-            </div>
-
-            <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-tutor">Open case study</button>
-              <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">GitHub</a>
+            <div class="pc-footer">
+              <button class="btn btn-soft" data-modal="m-hcml">Case study</button>
+              <a class="btn btn-primary" href="https://github.com/yogesh0224" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
-          <article class="project card reveal">
-            <div class="project-top">
-              <h3 class="project-title">Knowledge Constellation — 3D Knowledge Graph</h3>
-              <p class="project-badge">Visualization • Analytics</p>
+          <!-- Project 2 -->
+          <article class="project-card reveal" style="--accent: var(--a2);">
+            <div class="pc-cover">
+              <div class="pc-cover-left">
+                <div class="pc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 19V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M8 7h8M8 11h8M8 15h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M4 19a2 2 0 0 0 2 2h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="pc-kicker">Robustness • Reproducibility</div>
+                  <h3 class="pc-title">ML Evaluation & Interpretability Toolkit</h3>
+                </div>
+              </div>
+              <span class="pc-badge">Audit-ready</span>
             </div>
 
-            <p class="muted">
-              Interactive 3D knowledge graph to explore concepts and relationships, paired with learner pathway analytics and concept clustering.
-            </p>
+            <div class="pc-body">
+              <p class="pc-desc">
+                A reproducible evaluation pipeline that turns “good accuracy” into deployable evidence:
+                subgroup errors, robustness checks, and interpretability reporting.
+              </p>
 
-            <div class="mini-case">
-              <div><span class="mini-label">Problem:</span> concepts are taught linearly; understanding is connected.</div>
-              <div><span class="mini-label">Solution:</span> 3D exploration + pathway analytics backend.</div>
-              <div><span class="mini-label">Outcome:</span> prototype for discovery-based learning + curriculum mapping.</div>
+              <ul class="pc-points">
+                <li><strong>Evaluation:</strong> metrics + subgroup slices + failure modes</li>
+                <li><strong>Interpretability:</strong> model-agnostic explanation views</li>
+                <li><strong>Use case:</strong> institutional review & governance</li>
+              </ul>
+
+              <div class="pc-tags" aria-label="Tech stack">
+                <span class="tag">scikit-learn</span>
+                <span class="tag">SHAP</span>
+                <span class="tag">Error analysis</span>
+                <span class="tag">Reporting</span>
+              </div>
             </div>
 
-            <div class="tags" aria-label="Tech stack">
-              <span class="tag">Three.js</span><span class="tag">Django</span><span class="tag">Analytics</span><span class="tag">Graph modeling</span>
+            <div class="pc-footer">
+              <button class="btn btn-soft" data-modal="m-eval">Case study</button>
+              <a class="btn btn-primary" href="https://github.com/yogesh0224" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card reveal" style="--accent: var(--a3);">
+            <div class="pc-cover">
+              <div class="pc-cover-left">
+                <div class="pc-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M4 4h16v16H4V4Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M8 8h8M8 12h6M8 16h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="pc-kicker">Empirical ML • NLP</div>
+                  <h3 class="pc-title">GenAI Usage & Learning Outcomes Study</h3>
+                </div>
+              </div>
+              <span class="pc-badge">Methods-first</span>
             </div>
 
-            <div class="project-actions">
-              <button class="btn btn-ghost" data-modal="m-kg">Open case study</button>
-              <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
+            <div class="pc-body">
+              <p class="pc-desc">
+                Empirical analysis of how generative AI usage patterns relate to learning outcomes using structured data + text features,
+                emphasizing careful claims and reproducible methodology.
+              </p>
+
+              <ul class="pc-points">
+                <li><strong>Data:</strong> usage logs + text signals</li>
+                <li><strong>Methods:</strong> interpretable modeling + effect-size-grounded validation</li>
+                <li><strong>Outcome:</strong> manuscript in preparation (share on request)</li>
+              </ul>
+
+              <div class="pc-tags" aria-label="Tech stack">
+                <span class="tag">TF–IDF</span>
+                <span class="tag">Feature engineering</span>
+                <span class="tag">Stat tests</span>
+                <span class="tag">Reproducibility</span>
+              </div>
+            </div>
+
+            <div class="pc-footer">
+              <button class="btn btn-soft" data-modal="m-genai">Case study</button>
+              <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Generative%20AI%20study%20details">Request details</a>
             </div>
           </article>
         </div>
 
-        <p class="muted small note reveal">
-          If a project is private, I can share a short demo clip or a 1-page write-up by email.
-        </p>
+        <div class="note reveal">
+          <span class="note-dot"></span>
+          <span>If a project is private, I can share a short demo clip or 1-page writeup by email.</span>
+        </div>
       </div>
     </section>
 
     <!-- RESEARCH -->
     <section class="section" id="research">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Research</h2>
-          <p class="section-subtitle">
-            I focus on work where engineering meets governance—especially for education systems and developing contexts.
-          </p>
+          <p>Where I want to go next: HCI + ML evaluation + policy-aware deployment.</p>
         </div>
 
-        <div class="grid two">
+        <div class="two-col">
           <article class="card reveal">
-            <h3 class="card-title">Current focus</h3>
-            <ul class="list compact">
-              <li><strong>Privacy-preserving educational data use:</strong> analytics that respect consent, minimization, and security.</li>
-              <li><strong>AI governance for low-resource institutions:</strong> practical accountability and deployment constraints.</li>
-              <li><strong>Cyber policy & digital literacy:</strong> how institutional posture and user behavior shape safety outcomes.</li>
-              <li><strong>Human–AI interaction in learning:</strong> useful feedback, trust calibration, and teacher-in-the-loop design.</li>
+            <h3>Current focus</h3>
+            <ul class="bullets">
+              <li><strong>Human–AI interaction:</strong> decision-support UX, trust calibration, contestability.</li>
+              <li><strong>Human-centered ML:</strong> uncertainty cues, explanation interfaces, feedback loops.</li>
+              <li><strong>Empirical evaluation:</strong> subgroup errors, robustness, failure modes, reproducibility.</li>
+              <li><strong>Technology policy:</strong> transparency, privacy, governance constraints.</li>
             </ul>
           </article>
 
           <article class="card reveal">
-            <h3 class="card-title">Working papers & drafts</h3>
-            <ul class="list compact">
-              <li><strong>AI-Enhanced Educational Governance in Developing Nations:</strong> a case study of Nepal (drafting)</li>
-              <li><strong>Cyber Policy Gaps and Digital Literacy Barriers</strong> in Nepal’s digital ecosystem (concept stage)</li>
-              <li><strong>Responsible AI Adoption</strong> in low-resource academic institutions (data collection stage)</li>
+            <h3>Drafts & directions</h3>
+            <ul class="bullets">
+              <li><strong>GenAI usage → outcomes:</strong> empirical ML + NLP methodology (in preparation).</li>
+              <li><strong>Accountability for ML-assisted decisions:</strong> uncertainty + oversight design patterns.</li>
+              <li><strong>Low-resource policy constraints:</strong> privacy-by-design and evaluation standards.</li>
             </ul>
 
             <div class="divider"></div>
-            <p class="muted small">
-              I’m happy to share drafts and outlines by email if they align with your interests.
-            </p>
+            <a class="btn btn-soft" href="mailto:yogeshluitel9@gmail.com?subject=Research%20collaboration">
+              Reach out about collaboration
+            </a>
           </article>
         </div>
       </div>
@@ -293,84 +442,42 @@
     <!-- EXPERIENCE -->
     <section class="section" id="experience">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Experience</h2>
-          <p class="section-subtitle">
-            Teaching + research + building: three lenses that keep my work grounded in real constraints.
-          </p>
+          <p>Teaching + research + building — grounded in real users and constraints.</p>
         </div>
 
-        <div class="timeline" aria-label="Experience timeline">
+        <div class="timeline">
           <article class="timeline-item reveal">
-            <div class="timeline-when">2024–Present</div>
-            <div>
-              <div class="timeline-title">Computer Science Instructor • Xavier International College</div>
-              <p class="muted small">
-                Teach Grade 11–12 Computer Science (Python, DBMS, software development), lead labs, supervise projects,
-                and design structured digital materials with analytics-based workflows.
+            <div class="time">2024–Present</div>
+            <div class="time-body">
+              <div class="time-title">Computer Science Instructor • Xavier International College</div>
+              <p class="muted">
+                Teach Python, DBMS, and software development; lead labs and supervise projects; design digital learning materials and workflows.
               </p>
-              <div class="pill-row" aria-label="Topics">
-                <span class="pill">Python</span><span class="pill">DBMS</span><span class="pill">Project mentoring</span><span class="pill">Learning workflows</span>
+              <div class="chips">
+                <span class="chip">Python</span>
+                <span class="chip">DBMS</span>
+                <span class="chip">Mentoring</span>
+                <span class="chip">Learning workflows</span>
               </div>
             </div>
           </article>
 
           <article class="timeline-item reveal">
-            <div class="timeline-when">2023–2024</div>
-            <div>
-              <div class="timeline-title">Undergraduate Research Assistant • Phoenix College of Management</div>
-              <p class="muted small">
-                Studied AI-driven adaptive learning systems for secondary-level education and built ML-based student performance analysis to identify
-                conceptual weaknesses. Supported research design, dataset preparation, and mixed-method evaluation.
+            <div class="time">2023–2024</div>
+            <div class="time-body">
+              <div class="time-title">Undergraduate Research Assistant • Phoenix College of Management</div>
+              <p class="muted">
+                Studied adaptive learning systems and built ML-based student performance analysis to identify conceptual weaknesses; supported research design and evaluation.
               </p>
-              <div class="pill-row" aria-label="Methods">
-                <span class="pill">Learning analytics</span><span class="pill">Mixed methods</span><span class="pill">ML evaluation</span><span class="pill">Adaptive learning</span>
+              <div class="chips">
+                <span class="chip">Learning analytics</span>
+                <span class="chip">Mixed methods</span>
+                <span class="chip">ML evaluation</span>
+                <span class="chip">Adaptive learning</span>
               </div>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-head">
-          <h2>Skills</h2>
-          <p class="section-subtitle">
-            Solid engineering fundamentals, plus applied ML and deployment experience—shaped by real users and real constraints.
-          </p>
-        </div>
-
-        <div class="grid three">
-          <article class="card reveal">
-            <h3 class="card-title">Engineering</h3>
-            <ul class="list compact">
-              <li>Python, JavaScript</li>
-              <li>Django, Django REST Framework</li>
-              <li>REST APIs, authentication, caching</li>
-              <li>Git, Docker, Linux</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <h3 class="card-title">Data & ML</h3>
-            <ul class="list compact">
-              <li>Learning analytics, evaluation</li>
-              <li>TensorFlow, Scikit-Learn</li>
-              <li>Modeling: DKT, bandits (prototype)</li>
-              <li>Data analysis pipelines</li>
-            </ul>
-          </article>
-
-          <article class="card reveal">
-            <h3 class="card-title">Systems & policy lens</h3>
-            <ul class="list compact">
-              <li>Student data privacy, safe-by-design thinking</li>
-              <li>AI governance & accountability</li>
-              <li>ICT4D, socio-technical constraints</li>
-              <li>Human-centered product decisions</li>
-            </ul>
           </article>
         </div>
       </div>
@@ -379,386 +486,239 @@
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Contact</h2>
-          <p class="section-subtitle">
-            If you’d like to discuss research ideas, collaboration, or learning systems, feel free to reach out.
-          </p>
+          <p>If you want to talk research, collaboration, or opportunities — email is best.</p>
         </div>
 
-        <div class="grid two">
+        <div class="two-col">
           <article class="card reveal">
-            <h3 class="card-title">Email</h3>
+            <h3>Let’s connect</h3>
             <p class="muted">Fastest way to reach me:</p>
             <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com">yogeshluitel9@gmail.com</a>
 
             <div class="divider"></div>
 
-            <h3 class="card-title">CV</h3>
-            <p class="muted small">A concise overview of education, research, and projects:</p>
-            <a class="btn btn-ghost" href="Academic_CV.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
+            <h3>CV</h3>
+            <p class="muted">Open my latest CV as a PDF:</p>
+            <a class="btn btn-soft" href="Yogesh_Luitel_HCI_CV-1.pdf" target="_blank" rel="noopener">Open CV (PDF)</a>
           </article>
 
           <article class="card reveal">
-            <h3 class="card-title">A note to visitors</h3>
-            <p class="muted">
-              I’m especially interested in work that combines careful system design with real-world constraints—
-              where learning outcomes, privacy, and governance matter as much as the model.
-            </p>
-
-            <div class="divider"></div>
-
-            <div class="link-list">
-              <a class="link-row" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
-                <span>GitHub</span><span class="muted">Projects & code</span>
+            <h3>Links</h3>
+            <div class="link-row-2">
+              <a class="link-mini" href="https://github.com/yogesh0224" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2.7a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.9.7-3.6-1.2-3.6-1.2-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2.3 3 2 .1-.7.4-1.2.7-1.5-2.3-.3-4.7-1.1-4.7-5a3.9 3.9 0 0 1 1-2.7c-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.8 1a9.7 9.7 0 0 1 5.2 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.7 5 .4.3.7 1 .7 2v3c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.7Z"
+                          stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                GitHub
               </a>
-              <button class="link-row link-btn" type="button" data-copy="yogeshluitel9@gmail.com">
-                <span>Copy email</span><span class="muted">for quick outreach</span>
+
+              <a class="link-mini" href="https://www.linkedin.com/in/yogesh-luitel/" target="_blank" rel="noopener">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M6.5 9.5H4.2V20h2.3V9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M5.35 7.2a1.35 1.35 0 1 0 0-2.7 1.35 1.35 0 0 0 0 2.7Z" stroke="currentColor" stroke-width="1.8"/>
+                    <path d="M10.2 9.5H8V20h2.2v-5.4c0-3 3.9-3.2 3.9 0V20h2.2v-6.2c0-5-5.3-4.8-6.1-2.3V9.5Z"
+                          stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                LinkedIn
+              </a>
+
+              <button class="link-mini" type="button" data-copy="yogeshluitel9@gmail.com" aria-label="Copy email">
+                <span class="icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M9 9h10v10H9V9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  </svg>
+                </span>
+                Copy email
               </button>
             </div>
+
+            <div class="divider"></div>
+            <p class="muted">
+              I’m especially interested in opportunities where interface design, evaluation rigor, and governance matter as much as the model.
+            </p>
           </article>
         </div>
 
         <footer class="footer">
-          <p class="muted small">© <span id="year"></span> Yogesh Luitel • Built with HTML/CSS/JS</p>
+          <p>© <span id="year"></span> Yogesh Luitel</p>
         </footer>
       </div>
     </section>
   </main>
 
   <!-- =======================
-       CASE STUDY MODALS (PRO)
+       CASE STUDY MODALS
        ======================= -->
 
-  <!-- NEB Gyan -->
-  <dialog class="modal" id="m-neb" aria-label="NEB Gyan case study">
+  <dialog class="modal" id="m-hcml" aria-label="Human-Centered ML case study">
     <div class="modal-inner">
       <header class="modal-head">
-        <div class="modal-head-left">
+        <div>
           <div class="modal-kicker">CASE STUDY</div>
-          <h3 class="modal-title">NEB Gyan — Educational Platform</h3>
+          <h3 class="modal-title">Human-Centered ML for Programming Misconceptions</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </header>
 
-      <div class="modal-shell" data-case-shell>
-        <aside class="case-nav" aria-label="Case study navigation">
-          <button class="case-nav-btn is-active" data-case-nav="neb-overview">Overview</button>
-          <button class="case-nav-btn" data-case-nav="neb-problem">Problem</button>
-          <button class="case-nav-btn" data-case-nav="neb-solution">Solution</button>
-          <button class="case-nav-btn" data-case-nav="neb-architecture">Architecture</button>
-          <button class="case-nav-btn" data-case-nav="neb-ux">UX decisions</button>
-          <button class="case-nav-btn" data-case-nav="neb-outcomes">Outcomes</button>
+      <div class="modal-body" data-case-body>
+        <section class="case-hero">
+          <h4 class="case-hero-title">Teachers stay in control — ML assists, explains, and invites correction</h4>
+          <p class="case-hero-sub">Decision support that encourages verification rather than blind acceptance.</p>
 
-          <div class="case-nav-foot">
-            <div class="case-nav-note">Want a quick walkthrough?</div>
-            <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=NEB%20Gyan%20demo%20request">Request a demo</a>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-k">Paradigm</div><div class="metric-v">Human-in-the-loop</div></div>
+            <div class="metric"><div class="metric-k">UX</div><div class="metric-v">Uncertainty + XAI</div></div>
+            <div class="metric"><div class="metric-k">Evaluation</div><div class="metric-v">Behavior metrics</div></div>
           </div>
-        </aside>
+        </section>
 
-        <div class="modal-body" data-case-body>
-          <section class="case-hero" id="neb-overview">
-            <div class="case-hero-top">
-              <h4 class="case-hero-title">From scattered prep resources to a reliable learning workflow</h4>
-              <p class="case-hero-sub">
-                A production platform for +2 learners: content, practice, and feedback — designed to hold up during peak exam demand.
-              </p>
-            </div>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Design</h4><span class="case-chip">HCI</span>
+          </div>
+          <ul class="bullets">
+            <li>Confidence/uncertainty cues without false precision</li>
+            <li>Evidence views that support sensemaking</li>
+            <li>Easy override and feedback capture</li>
+          </ul>
+        </section>
 
-            <div class="case-metrics" aria-label="Project highlights">
-              <div class="metric">
-                <div class="metric-k">Users</div>
-                <div class="metric-v">10,000+ active</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Role</div>
-                <div class="metric-v">Founder • Full-stack</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Focus</div>
-                <div class="metric-v">Scale + analytics</div>
-              </div>
-            </div>
-          </section>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Evaluation</h4><span class="case-chip">Empirical</span>
+          </div>
+          <ul class="bullets">
+            <li>ML On vs ML Off (pilot) with interaction logging</li>
+            <li>Time-to-decision + correction patterns</li>
+            <li>Checks for over-reliance behavior</li>
+          </ul>
+        </section>
 
-          <section class="case-section" id="neb-problem">
-            <div class="case-section-head">
-              <h4 class="case-title">Problem</h4>
-              <span class="case-chip">Why it mattered</span>
-            </div>
-            <ul class="list compact">
-              <li>Students relied on scattered notes, groups, and PDFs with uneven quality.</li>
-              <li>Mock tests existed, but learners couldn’t see progress or weak areas.</li>
-              <li>Many resources broke under traffic during exam season.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="neb-solution">
-            <div class="case-section-head">
-              <h4 class="case-title">Solution</h4>
-              <span class="case-chip">What I built</span>
-            </div>
-            <ul class="list compact">
-              <li>Structured notes + timed mock tests + a clear dashboard.</li>
-              <li>Topic-level performance signals to highlight weak areas.</li>
-              <li>Reliable backend patterns: auth, caching, and DB optimization.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="neb-architecture">
-            <div class="case-section-head">
-              <h4 class="case-title">Architecture</h4>
-              <span class="case-chip">How it works</span>
-            </div>
-            <ul class="list compact">
-              <li><strong>Django + DRF</strong> for modular services and clean API boundaries.</li>
-              <li><strong>MySQL</strong> for core data; <strong>Redis</strong> for caching and performance.</li>
-              <li>Analytics events modeled for progress tracking and reporting.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="neb-ux">
-            <div class="case-section-head">
-              <h4 class="case-title">UX decisions</h4>
-              <span class="case-chip">Clarity first</span>
-            </div>
-            <ul class="list compact">
-              <li>Make the loop obvious: <strong>learn → practice → feedback → next action</strong>.</li>
-              <li>Reduce cognitive load: consistent test flow, clean result screens.</li>
-              <li>Mobile-first constraints (most learners use phones).</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="neb-outcomes">
-            <div class="case-section-head">
-              <h4 class="case-title">Outcomes</h4>
-              <span class="case-chip">Impact + next</span>
-            </div>
-            <ul class="list compact">
-              <li>Scaled to <strong>10,000+ active users</strong> with stable peak performance.</li>
-              <li>Next: privacy-first analytics docs (minimization + retention) and teacher dashboards.</li>
-            </ul>
-          </section>
-
-          <div class="case-end-space" aria-hidden="true"></div>
-        </div>
+        <div class="case-end-space" aria-hidden="true"></div>
       </div>
 
       <footer class="modal-actions">
-        <div class="actions-left muted small">Tip: use the left menu to jump between sections (no scrolling pain).</div>
+        <div class="actions-left">Goal: decision support that’s trustworthy, auditable, and easy to contest.</div>
         <div class="actions-right">
-          <button class="btn btn-ghost" data-close>Close</button>
+          <button class="btn btn-soft" data-close>Close</button>
         </div>
       </footer>
     </div>
   </dialog>
 
-  <!-- Adaptive Tutor -->
-  <dialog class="modal" id="m-tutor" aria-label="Adaptive AI Tutor case study">
+  <dialog class="modal" id="m-eval" aria-label="ML evaluation toolkit case study">
     <div class="modal-inner">
       <header class="modal-head">
-        <div class="modal-head-left">
+        <div>
           <div class="modal-kicker">CASE STUDY</div>
-          <h3 class="modal-title">Adaptive AI Tutor (Prototype)</h3>
+          <h3 class="modal-title">ML Evaluation & Interpretability Toolkit</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </header>
 
-      <div class="modal-shell" data-case-shell>
-        <aside class="case-nav" aria-label="Case study navigation">
-          <button class="case-nav-btn is-active" data-case-nav="tutor-overview">Overview</button>
-          <button class="case-nav-btn" data-case-nav="tutor-problem">Problem</button>
-          <button class="case-nav-btn" data-case-nav="tutor-approach">Approach</button>
-          <button class="case-nav-btn" data-case-nav="tutor-eval">Evaluation</button>
-          <button class="case-nav-btn" data-case-nav="tutor-next">Next steps</button>
+      <div class="modal-body" data-case-body>
+        <section class="case-hero">
+          <h4 class="case-hero-title">From “good accuracy” to deployable evidence</h4>
+          <p class="case-hero-sub">Reproducible evaluation that supports institutional oversight and governance.</p>
 
-          <div class="case-nav-foot">
-            <div class="case-nav-note">Prototype repository</div>
-            <a class="btn btn-primary" href="https://github.com/yogesh0224/Adaptive-Tutor" target="_blank" rel="noopener">Open GitHub</a>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-k">Checks</div><div class="metric-v">Subgroups + robustness</div></div>
+            <div class="metric"><div class="metric-k">Output</div><div class="metric-v">Auditable reports</div></div>
+            <div class="metric"><div class="metric-k">XAI</div><div class="metric-v">Model-agnostic</div></div>
           </div>
-        </aside>
+        </section>
 
-        <div class="modal-body" data-case-body>
-          <section class="case-hero" id="tutor-overview">
-            <div class="case-hero-top">
-              <h4 class="case-hero-title">Mastery-aware practice sequencing</h4>
-              <p class="case-hero-sub">
-                Exploring how to model what a learner knows and adapt practice using learning-science-inspired ML.
-              </p>
-            </div>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Pipeline</h4><span class="case-chip">Reproducible</span>
+          </div>
+          <ul class="bullets">
+            <li>Standardized dataset prep → training → evaluation → reporting</li>
+            <li>Failure modes and subgroup slices for fairness-adjacent risk</li>
+            <li>Robustness checks to surface brittleness early</li>
+          </ul>
+        </section>
 
-            <div class="case-metrics" aria-label="Project highlights">
-              <div class="metric">
-                <div class="metric-k">Type</div>
-                <div class="metric-v">Research prototype</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Methods</div>
-                <div class="metric-v">DKT • bandits • CodeBERT</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Goal</div>
-                <div class="metric-v">Adaptive tutoring loop</div>
-              </div>
-            </div>
-          </section>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Governance angle</h4><span class="case-chip">Policy</span>
+          </div>
+          <ul class="bullets">
+            <li>Supports “should we deploy?” decisions, not only “is it accurate?”</li>
+            <li>Pairs with transparency requirements and documentation</li>
+          </ul>
+        </section>
 
-          <section class="case-section" id="tutor-problem">
-            <div class="case-section-head">
-              <h4 class="case-title">Problem</h4>
-              <span class="case-chip">Learning gap</span>
-            </div>
-            <p class="muted small">
-              Most practice systems treat all learners the same. In reality, mastery changes over time and by concept—especially in programming.
-            </p>
-            <ul class="list compact">
-              <li>Practice can be too easy (waste time) or too hard (discourage).</li>
-              <li>Without mastery modeling, recommendations are guesswork.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="tutor-approach">
-            <div class="case-section-head">
-              <h4 class="case-title">Approach</h4>
-              <span class="case-chip">Modeling + policy</span>
-            </div>
-            <ul class="list compact">
-              <li><strong>Deep Knowledge Tracing (LSTM):</strong> predict mastery from interaction sequences.</li>
-              <li><strong>Contextual bandits:</strong> select next practice item to balance learning + exploration.</li>
-              <li><strong>CodeBERT exploration:</strong> code-aware representations for programming tasks.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="tutor-eval">
-            <div class="case-section-head">
-              <h4 class="case-title">Evaluation</h4>
-              <span class="case-chip">What I measure</span>
-            </div>
-            <ul class="list compact">
-              <li>Baseline comparisons, error analysis by topic, and calibration checks.</li>
-              <li>Repeatable pipeline: dataset prep → training → evaluation → iteration.</li>
-              <li>Design constraints: logs minimal + teacher oversight possible.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="tutor-next">
-            <div class="case-section-head">
-              <h4 class="case-title">Next steps</h4>
-              <span class="case-chip">Research-ready</span>
-            </div>
-            <ul class="list compact">
-              <li>Human-in-the-loop review for recommendations.</li>
-              <li>Privacy-aware logging with auditable events.</li>
-              <li>More classroom-like tasks and stronger baselines.</li>
-            </ul>
-          </section>
-
-          <div class="case-end-space" aria-hidden="true"></div>
-        </div>
+        <div class="case-end-space" aria-hidden="true"></div>
       </div>
 
       <footer class="modal-actions">
-        <div class="actions-left muted small">Use the left menu to jump sections; the content area scrolls independently.</div>
+        <div class="actions-left">Evaluation is governance: what you measure shapes what you can justify.</div>
         <div class="actions-right">
-          <button class="btn btn-ghost" data-close>Close</button>
+          <button class="btn btn-soft" data-close>Close</button>
         </div>
       </footer>
     </div>
   </dialog>
 
-  <!-- Knowledge Constellation -->
-  <dialog class="modal" id="m-kg" aria-label="Knowledge Constellation case study">
+  <dialog class="modal" id="m-genai" aria-label="Generative AI usage study case study">
     <div class="modal-inner">
       <header class="modal-head">
-        <div class="modal-head-left">
+        <div>
           <div class="modal-kicker">CASE STUDY</div>
-          <h3 class="modal-title">Knowledge Constellation — 3D Knowledge Graph</h3>
+          <h3 class="modal-title">GenAI Usage & Learning Outcomes Study</h3>
         </div>
         <button class="icon-btn" data-close aria-label="Close">✕</button>
       </header>
 
-      <div class="modal-shell" data-case-shell>
-        <aside class="case-nav" aria-label="Case study navigation">
-          <button class="case-nav-btn is-active" data-case-nav="kg-overview">Overview</button>
-          <button class="case-nav-btn" data-case-nav="kg-problem">Problem</button>
-          <button class="case-nav-btn" data-case-nav="kg-solution">Solution</button>
-          <button class="case-nav-btn" data-case-nav="kg-next">Next steps</button>
+      <div class="modal-body" data-case-body>
+        <section class="case-hero">
+          <h4 class="case-hero-title">Empirical ML that avoids hype</h4>
+          <p class="case-hero-sub">Interpretable modeling, careful claims, reproducible methodology.</p>
 
-          <div class="case-nav-foot">
-            <div class="case-nav-note">Want details?</div>
-            <a class="btn btn-primary" href="mailto:yogeshluitel9@gmail.com?subject=Knowledge%20Constellation%20details">Request details</a>
+          <div class="case-metrics">
+            <div class="metric"><div class="metric-k">Data</div><div class="metric-v">Structured + text</div></div>
+            <div class="metric"><div class="metric-k">Methods</div><div class="metric-v">Interpretable</div></div>
+            <div class="metric"><div class="metric-k">Status</div><div class="metric-v">In preparation</div></div>
           </div>
-        </aside>
+        </section>
 
-        <div class="modal-body" data-case-body>
-          <section class="case-hero" id="kg-overview">
-            <div class="case-hero-top">
-              <h4 class="case-hero-title">Making concept structure visible</h4>
-              <p class="case-hero-sub">
-                A 3D knowledge graph prototype for exploring dependencies, discovering connections, and mapping learning pathways.
-              </p>
-            </div>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Method</h4><span class="case-chip">Empirical</span>
+          </div>
+          <ul class="bullets">
+            <li>NLP features (TF–IDF + statistical signals) for interpretability</li>
+            <li>Effect-size-grounded validation; reproducible experiments</li>
+            <li>Focus on failure modes and alternative explanations</li>
+          </ul>
+        </section>
 
-            <div class="case-metrics" aria-label="Project highlights">
-              <div class="metric">
-                <div class="metric-k">UI</div>
-                <div class="metric-v">Three.js • WebGL</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Backend</div>
-                <div class="metric-v">Django analytics</div>
-              </div>
-              <div class="metric">
-                <div class="metric-k">Use</div>
-                <div class="metric-v">Pathways + clustering</div>
-              </div>
-            </div>
-          </section>
+        <section class="case-section">
+          <div class="case-section-head">
+            <h4 class="case-title">Implications</h4><span class="case-chip">Policy</span>
+          </div>
+          <ul class="bullets">
+            <li>What institutions should measure before adopting GenAI at scale</li>
+            <li>Transparency and responsible-use constraints</li>
+          </ul>
+        </section>
 
-          <section class="case-section" id="kg-problem">
-            <div class="case-section-head">
-              <h4 class="case-title">Problem</h4>
-              <span class="case-chip">Why graphs</span>
-            </div>
-            <ul class="list compact">
-              <li>Concept dependencies are hard to see in linear notes and syllabi.</li>
-              <li>Learners miss prerequisites without realizing it.</li>
-              <li>Teachers need tools to visualize pathways and bottlenecks.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="kg-solution">
-            <div class="case-section-head">
-              <h4 class="case-title">Solution</h4>
-              <span class="case-chip">What I built</span>
-            </div>
-            <ul class="list compact">
-              <li>Interactive 3D graph: zoom, focus, relationship cues, exploration flow.</li>
-              <li>Backend analytics for pathways + concept clustering.</li>
-              <li>Designed for clarity: minimal UI, readable motion, guided discovery.</li>
-            </ul>
-          </section>
-
-          <section class="case-section" id="kg-next">
-            <div class="case-section-head">
-              <h4 class="case-title">Next steps</h4>
-              <span class="case-chip">Evolve it</span>
-            </div>
-            <ul class="list compact">
-              <li>Usability testing (task-based studies with teachers/students).</li>
-              <li>Privacy-by-design analytics (minimization + retention).</li>
-              <li>Export tools for curriculum planning and reporting.</li>
-            </ul>
-          </section>
-
-          <div class="case-end-space" aria-hidden="true"></div>
-        </div>
+        <div class="case-end-space" aria-hidden="true"></div>
       </div>
 
       <footer class="modal-actions">
-        <div class="actions-left muted small">This layout stays readable (and professional) in light mode too.</div>
+        <div class="actions-left">I can share methods + outline by email.</div>
         <div class="actions-right">
-          <button class="btn btn-ghost" data-close>Close</button>
+          <button class="btn btn-soft" data-close>Close</button>
         </div>
       </footer>
     </div>
